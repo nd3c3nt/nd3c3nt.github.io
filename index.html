@@ -9,755 +9,191 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg:        #0a0a0c;
-    --bg-card:   #0f0e0c;
-    --bg-card-h: #141210;
-    --bg-grid:   #1e1c18;
-    --amber:     #c97d2a;
-    --amber-h:   #e0943a;
-    --blue:      #5d9aae;
-    --green:     #7a9e5a;
-    --purple:    #9a6aaa;
-    --rust:      #ae7a5a;
-    --text-hi:   #f0ead8;
-    --text-md:   #c8c4b8;
-    --text-lo:   #8a8478;
-    --text-dim:  #5a554e;
-    --border:    #2a2820;
-    --border-lo: #1e1c18;
-    --mono:      'Share Tech Mono', monospace;
-    --cond:      'Barlow Condensed', sans-serif;
-    --body:      'Barlow', sans-serif;
+    --bg:#0a0a0c; --bg-card:#0f0e0c; --bg-card-h:#141210; --bg-grid:#1e1c18;
+    --amber:#c97d2a; --amber-h:#e0943a; --blue:#5d9aae; --green:#7a9e5a;
+    --purple:#9a6aaa; --rust:#ae7a5a; --teal:#4a9a8a;
+    --text-hi:#f0ead8; --text-md:#c8c4b8; --text-lo:#8a8478; --text-dim:#5a554e;
+    --border:#2a2820; --border-lo:#1e1c18;
+    --mono:'Share Tech Mono',monospace; --cond:'Barlow Condensed',sans-serif; --body:'Barlow',sans-serif;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text-md);
-    font-family: var(--body);
-    font-size: 15px;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2.5rem;
-    height: 56px;
-    background: rgba(10,10,12,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border-lo);
-  }
-
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--amber);
-    letter-spacing: 0.12em;
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .nav-links a:hover { color: var(--amber); }
-
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8rem 2.5rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-grid-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(201,125,42,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,125,42,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
-  }
-
-  .hero-inner { position: relative; max-width: 900px; }
-
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--amber);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  .hero-name {
-    font-family: var(--cond);
-    font-size: clamp(52px, 9vw, 96px);
-    font-weight: 700;
-    color: var(--text-hi);
-    line-height: 0.95;
-    letter-spacing: 0.01em;
-    margin-bottom: 0.75rem;
-  }
-
-  .hero-name span { color: var(--amber); }
-
-  .hero-title {
-    font-family: var(--cond);
-    font-size: clamp(18px, 3vw, 26px);
-    font-weight: 300;
-    color: var(--text-lo);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-
-  .hero-desc {
-    font-size: 16px;
-    color: var(--text-lo);
-    max-width: 560px;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-ctas {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 10px 22px;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: all 0.15s;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .btn-primary {
-    background: var(--amber);
-    color: #1a0e02;
-    border: 1px solid var(--amber);
-  }
-
-  .btn-primary:hover { background: var(--amber-h); border-color: var(--amber-h); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text-dim);
-    border: 1px solid var(--border);
-  }
-
-  .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 2.5rem;
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text-dim);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .hero-scroll::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1px;
-    background: var(--text-dim);
-  }
-
-  /* ── SECTIONS ── */
-  section { padding: 5rem 2.5rem; }
-
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-
-  .section-eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-  }
-
-  .section-title {
-    font-family: var(--cond);
-    font-size: clamp(28px, 4vw, 40px);
-    font-weight: 700;
-    color: var(--text-hi);
-    letter-spacing: 0.02em;
-    margin-bottom: 0.3rem;
-    line-height: 1;
-  }
-
-  .section-divider {
-    height: 2px;
-    width: 50px;
-    margin-bottom: 2.5rem;
-  }
-
-  /* ── ABOUT ── */
-  #about .section-eyebrow { color: var(--blue); }
-  #about .section-divider { background: var(--blue); }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  .about-text p {
-    color: var(--text-lo);
-    margin-bottom: 1rem;
-    line-height: 1.75;
-  }
-
-  .about-text p:last-child { margin-bottom: 0; }
-
-  .about-text strong { color: var(--text-md); font-weight: 500; }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--bg-grid);
-    border: 1px solid var(--bg-grid);
-    align-self: start;
-  }
-
-  .stat-box {
-    background: var(--bg-card);
-    padding: 1.5rem;
-  }
-
-  .stat-num {
-    font-family: var(--cond);
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--text-hi);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-num span { color: var(--amber); }
-
-  .stat-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text-dim);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* ── SKILLS ── */
-  #skills { background: #09090b; }
-  #skills .section-eyebrow { color: var(--green); }
-  #skills .section-divider { background: var(--green); }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1px;
-    background: var(--bg-grid);
-    border: 1px solid var(--bg-grid);
-  }
-
-  .skill-group {
-    background: var(--bg-card);
-    padding: 1.5rem;
-  }
-
-  .skill-group-title {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--green);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-lo);
-  }
-
-  .skill-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .skill-list li {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-dim);
-    padding: 3px 8px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    letter-spacing: 0.06em;
-  }
-
-  /* ── PROJECTS ── */
-  #projects .section-eyebrow { color: var(--amber); }
-  #projects .section-divider { background: var(--amber); }
-
-  .filter-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-  }
-
-  .filter-btn {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    padding: 5px 14px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: #888070;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.15s;
-    text-transform: uppercase;
-  }
-
-  .filter-btn:hover, .filter-btn.active {
-    border-color: var(--amber);
-    color: var(--amber);
-    background: rgba(201,125,42,0.08);
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1px;
-    background: var(--bg-grid);
-    border: 1px solid var(--bg-grid);
-  }
-
-  .proj-card {
-    background: var(--bg-card);
-    padding: 1.5rem;
-    position: relative;
-    transition: background 0.2s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .proj-card:hover { background: var(--bg-card-h); }
-
-  .proj-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: transparent;
-    transition: background 0.2s;
-  }
-
-  .proj-card.cat-shipped:hover::before  { background: var(--amber); }
-  .proj-card.cat-patent:hover::before   { background: var(--blue); }
-  .proj-card.cat-tools:hover::before    { background: var(--green); }
-  .proj-card.cat-personal:hover::before { background: var(--purple); }
-  .proj-card.cat-software:hover::before { background: var(--rust); }
-
-  .proj-tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 0.75rem; }
-
-  .proj-tag {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    padding: 2px 7px;
-    border-radius: 1px;
-    text-transform: uppercase;
-  }
-
-  .tag-shipped  { background: rgba(201,125,42,0.15); color: var(--amber);  border: 1px solid rgba(201,125,42,0.3); }
-  .tag-patent   { background: rgba(93,154,174,0.15);  color: var(--blue);   border: 1px solid rgba(93,154,174,0.3); }
-  .tag-tools    { background: rgba(122,158,90,0.15);  color: var(--green);  border: 1px solid rgba(122,158,90,0.3); }
-  .tag-personal { background: rgba(154,106,170,0.15); color: var(--purple); border: 1px solid rgba(154,106,170,0.3); }
-  .tag-software { background: rgba(174,122,90,0.15);  color: var(--rust);   border: 1px solid rgba(174,122,90,0.3); }
-
-  .proj-name {
-    font-family: var(--cond);
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-hi);
-    letter-spacing: 0.03em;
-    margin: 0 0 0.3rem;
-    line-height: 1.2;
-  }
-
-  .proj-role {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: #888070;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-  }
-
-  .proj-desc {
-    font-size: 13px;
-    color: var(--text-lo);
-    line-height: 1.6;
-    flex: 1;
-    margin: 0 0 1rem;
-  }
-
-  .proj-tech-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
-
-  .proj-tech {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text-dim);
-    padding: 2px 6px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  .proj-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--amber);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 1rem;
-    border-top: 1px solid var(--border-lo);
-    padding-top: 0.75rem;
-  }
-
-  .proj-link:hover { color: var(--amber-h); }
-
-  .proj-year {
-    position: absolute;
-    top: 1rem; right: 1rem;
-    font-family: var(--mono);
-    font-size: 10px;
-    color: #3a3530;
-    letter-spacing: 0.05em;
-  }
-
-  /* ── PATENTS ── */
-  #patents { background: #09090b; }
-  #patents .section-eyebrow { color: var(--blue); }
-  #patents .section-divider { background: var(--blue); }
-
-  .patents-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1px;
-    background: var(--bg-grid);
-    border: 1px solid var(--bg-grid);
-  }
-
-  .pat-card {
-    background: var(--bg-card);
-    padding: 1.5rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    transition: background 0.2s;
-  }
-
-  .pat-card:hover { background: var(--bg-card-h); }
-
-  .pat-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: transparent;
-    transition: background 0.2s;
-  }
-
-  .pat-card:hover::before { background: var(--blue); }
-
-  .pat-status {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    padding: 2px 7px;
-    border-radius: 1px;
-    text-transform: uppercase;
-    background: rgba(93,154,174,0.15);
-    color: var(--blue);
-    border: 1px solid rgba(93,154,174,0.3);
-    display: inline-block;
-    margin-bottom: 0.75rem;
-    align-self: flex-start;
-  }
-
-  .pat-name {
-    font-family: var(--cond);
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--text-hi);
-    letter-spacing: 0.03em;
-    margin: 0 0 0.5rem;
-    line-height: 1.25;
-  }
-
-  .pat-meta {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: #7a9090;
-    letter-spacing: 0.06em;
-    margin-bottom: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-
-  .pat-desc {
-    font-size: 13px;
-    color: var(--text-lo);
-    line-height: 1.6;
-    flex: 1;
-    margin: 0 0 1rem;
-  }
-
-  .pat-footer {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-    border-top: 1px solid var(--border-lo);
-    padding-top: 0.75rem;
-    margin-top: auto;
-  }
-
-  .pat-chip {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text-dim);
-    padding: 2px 6px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  .pat-intl {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: #5d7a7a;
-    letter-spacing: 0.06em;
-    margin-left: auto;
-  }
-
-  /* ── CONTACT ── */
-  #contact .section-eyebrow { color: var(--amber); }
-  #contact .section-divider { background: var(--amber); }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  .contact-intro p {
-    color: var(--text-lo);
-    line-height: 1.75;
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-dim);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    transition: color 0.15s;
-  }
-
-  .contact-link:hover { color: var(--amber); }
-
-  .contact-link-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #3a3530;
-    min-width: 70px;
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .form-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text-dim);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .form-input, .form-textarea {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-md);
-    font-family: var(--body);
-    font-size: 14px;
-    padding: 10px 14px;
-    border-radius: 2px;
-    outline: none;
-    transition: border-color 0.15s;
-    width: 100%;
-  }
-
-  .form-input:focus, .form-textarea:focus {
-    border-color: var(--amber);
-  }
-
-  .form-textarea { resize: vertical; min-height: 120px; }
-
-  .form-input::placeholder, .form-textarea::placeholder {
-    color: #3a3530;
-  }
-
-  .form-submit {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 12px 24px;
-    background: var(--amber);
-    color: #1a0e02;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background 0.15s;
-    align-self: flex-start;
-  }
-
-  .form-submit:hover { background: var(--amber-h); }
-
-  .form-note {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: #3a3530;
-    letter-spacing: 0.06em;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border-lo);
-    padding: 2rem 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-copy {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: #3a3530;
-    letter-spacing: 0.1em;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .footer-links a {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: #3a3530;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.15s;
-  }
-
-  .footer-links a:hover { color: var(--amber); }
-
-  /* ── HIDDEN CARD ── */
-  .hidden { display: none !important; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 0 1.25rem; }
-    .nav-links { gap: 1.2rem; }
-    section { padding: 4rem 1.25rem; }
-    #hero { padding: 7rem 1.25rem 3rem; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .hero-scroll { left: 1.25rem; }
-    footer { padding: 1.5rem 1.25rem; }
-  }
-
-  @media (max-width: 480px) {
-    .nav-links { display: none; }
-  }
+  body { background:var(--bg); color:var(--text-md); font-family:var(--body); font-size:15px; line-height:1.6; min-height:100vh; }
+
+  nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2.5rem; height:56px; background:rgba(10,10,12,0.95); backdrop-filter:blur(8px); border-bottom:1px solid var(--border-lo); }
+  .nav-logo { font-family:var(--mono); font-size:13px; color:var(--amber); letter-spacing:.12em; text-decoration:none; }
+  .nav-links { display:flex; gap:2rem; list-style:none; }
+  .nav-links a { font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--text-dim); text-decoration:none; transition:color .15s; }
+  .nav-links a:hover { color:var(--amber); }
+
+  #hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:8rem 2.5rem 4rem; position:relative; overflow:hidden; }
+  .hero-grid-bg { position:absolute; inset:0; background-image:linear-gradient(rgba(201,125,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,125,42,.03) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 30%,transparent 100%); }
+  .hero-inner { position:relative; max-width:900px; }
+  .hero-eyebrow { font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:.25em; text-transform:uppercase; margin-bottom:1rem; }
+  .hero-name { font-family:var(--cond); font-size:clamp(52px,9vw,96px); font-weight:700; color:var(--text-hi); line-height:.95; letter-spacing:.01em; margin-bottom:.75rem; }
+  .hero-name span { color:var(--amber); }
+  .hero-title { font-family:var(--cond); font-size:clamp(18px,3vw,26px); font-weight:300; color:var(--text-lo); letter-spacing:.08em; text-transform:uppercase; margin-bottom:2rem; }
+  .hero-desc { font-size:16px; color:var(--text-lo); max-width:580px; line-height:1.7; margin-bottom:2.5rem; }
+  .hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn { font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; padding:10px 22px; border-radius:2px; text-decoration:none; transition:all .15s; display:inline-flex; align-items:center; gap:6px; }
+  .btn-primary { background:var(--amber); color:#1a0e02; border:1px solid var(--amber); }
+  .btn-primary:hover { background:var(--amber-h); border-color:var(--amber-h); }
+  .btn-outline { background:transparent; color:var(--text-dim); border:1px solid var(--border); }
+  .btn-outline:hover { border-color:var(--amber); color:var(--amber); }
+  .hero-scroll { position:absolute; bottom:2.5rem; left:2.5rem; font-family:var(--mono); font-size:10px; color:var(--text-dim); letter-spacing:.15em; text-transform:uppercase; display:flex; align-items:center; gap:8px; }
+  .hero-scroll::before { content:''; display:block; width:24px; height:1px; background:var(--text-dim); }
+
+  #carousel-section { padding:0; position:relative; overflow:hidden; background:#000; height:480px; }
+  .carousel-track { display:flex; height:100%; transition:transform .6s cubic-bezier(.4,0,.2,1); }
+  .carousel-slide { min-width:100%; height:100%; position:relative; cursor:pointer; flex-shrink:0; }
+  .carousel-slide img { width:100%; height:100%; object-fit:cover; opacity:.55; transition:opacity .3s; display:block; }
+  .carousel-slide:hover img { opacity:.7; }
+  .carousel-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 50%,transparent 100%); }
+  .carousel-caption { position:absolute; bottom:0; left:0; right:0; padding:2rem 2.5rem; }
+  .carousel-badge { font-family:var(--mono); font-size:10px; letter-spacing:.15em; text-transform:uppercase; padding:3px 9px; border-radius:1px; margin-bottom:.6rem; display:inline-block; }
+  .badge-shipped { background:rgba(201,125,42,.2); color:var(--amber); border:1px solid rgba(201,125,42,.4); }
+  .badge-ar { background:rgba(93,154,174,.2); color:var(--blue); border:1px solid rgba(93,154,174,.4); }
+  .carousel-title { font-family:var(--cond); font-size:clamp(24px,4vw,42px); font-weight:700; color:var(--text-hi); line-height:1.1; margin-bottom:.4rem; }
+  .carousel-sub { font-family:var(--mono); font-size:12px; color:var(--text-lo); letter-spacing:.08em; margin-bottom:1rem; }
+  .carousel-cta { font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:.12em; text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; }
+  .carousel-cta::after { content:'→'; }
+  .carousel-nav { position:absolute; bottom:1.5rem; right:2.5rem; display:flex; gap:8px; }
+  .carousel-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.2); border:none; cursor:pointer; transition:all .2s; padding:0; }
+  .carousel-dot.active { background:var(--amber); transform:scale(1.2); }
+  .carousel-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.5); border:1px solid var(--border); color:var(--text-md); font-family:var(--mono); font-size:16px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .2s; z-index:2; }
+  .carousel-arrow:hover { background:rgba(201,125,42,.2); border-color:var(--amber); color:var(--amber); }
+  .carousel-arrow.prev { left:1.5rem; }
+  .carousel-arrow.next { right:1.5rem; }
+
+  section { padding:5rem 2.5rem; }
+  .section-inner { max-width:1100px; margin:0 auto; }
+  .section-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; margin-bottom:.4rem; }
+  .section-title { font-family:var(--cond); font-size:clamp(28px,4vw,40px); font-weight:700; color:var(--text-hi); letter-spacing:.02em; margin-bottom:.3rem; line-height:1; }
+  .section-divider { height:2px; width:50px; margin-bottom:2.5rem; }
+
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+  .about-text p { color:var(--text-lo); margin-bottom:1rem; line-height:1.75; }
+  .about-text strong { color:var(--text-md); font-weight:500; }
+  .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--bg-grid); border:1px solid var(--bg-grid); }
+  .stat-box { background:var(--bg-card); padding:1.5rem; }
+  .stat-num { font-family:var(--cond); font-size:36px; font-weight:700; color:var(--text-hi); line-height:1; margin-bottom:.3rem; }
+  .stat-num span { color:var(--amber); }
+  .stat-label { font-family:var(--mono); font-size:10px; color:var(--text-dim); letter-spacing:.1em; text-transform:uppercase; }
+
+  #skills { background:#09090b; }
+  .skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1px; background:var(--bg-grid); border:1px solid var(--bg-grid); }
+  .skill-group { background:var(--bg-card); padding:1.5rem; }
+  .skill-group-title { font-family:var(--mono); font-size:10px; color:var(--green); letter-spacing:.15em; text-transform:uppercase; margin-bottom:.75rem; padding-bottom:.5rem; border-bottom:1px solid var(--border-lo); }
+  .skill-list { list-style:none; display:flex; flex-wrap:wrap; gap:6px; }
+  .skill-list li { font-family:var(--mono); font-size:11px; color:var(--text-dim); padding:3px 8px; border:1px solid var(--border); border-radius:2px; letter-spacing:.06em; }
+
+  .filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:2rem; }
+  .filter-btn { font-family:var(--mono); font-size:11px; letter-spacing:.12em; padding:5px 14px; border:1px solid var(--border); background:transparent; color:#888070; cursor:pointer; border-radius:2px; transition:all .15s; text-transform:uppercase; }
+  .filter-btn:hover,.filter-btn.active { border-color:var(--amber); color:var(--amber); background:rgba(201,125,42,.08); }
+  .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1px; background:var(--bg-grid); border:1px solid var(--bg-grid); }
+  .proj-card { background:var(--bg-card); padding:1.5rem; position:relative; transition:background .2s; display:flex; flex-direction:column; cursor:pointer; }
+  .proj-card:hover { background:var(--bg-card-h); }
+  .proj-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:transparent; transition:background .2s; }
+  .proj-card.cat-shipped:hover::before { background:var(--amber); }
+  .proj-card.cat-software:hover::before { background:var(--rust); }
+  .proj-card.cat-tools:hover::before { background:var(--green); }
+  .proj-card.cat-music:hover::before { background:var(--purple); }
+  .proj-card.cat-personal:hover::before { background:var(--teal); }
+  .proj-card.highlighted { background:var(--bg-card-h); outline:2px solid var(--amber); outline-offset:-2px; }
+  .proj-tag-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:.75rem; }
+  .proj-tag { font-family:var(--mono); font-size:10px; letter-spacing:.1em; padding:2px 7px; border-radius:1px; text-transform:uppercase; }
+  .tag-shipped { background:rgba(201,125,42,.15); color:var(--amber); border:1px solid rgba(201,125,42,.3); }
+  .tag-software { background:rgba(174,122,90,.15); color:var(--rust); border:1px solid rgba(174,122,90,.3); }
+  .tag-tools { background:rgba(122,158,90,.15); color:var(--green); border:1px solid rgba(122,158,90,.3); }
+  .tag-music { background:rgba(154,106,170,.15); color:var(--purple); border:1px solid rgba(154,106,170,.3); }
+  .tag-personal { background:rgba(74,154,138,.15); color:var(--teal); border:1px solid rgba(74,154,138,.3); }
+  .proj-name { font-family:var(--cond); font-size:20px; font-weight:600; color:var(--text-hi); letter-spacing:.03em; margin:0 0 .3rem; line-height:1.2; }
+  .proj-role { font-family:var(--mono); font-size:11px; color:#888070; letter-spacing:.08em; margin-bottom:.75rem; text-transform:uppercase; }
+  .proj-desc { font-size:13px; color:var(--text-lo); line-height:1.6; flex:1; margin:0 0 1rem; }
+  .proj-tech-row { display:flex; gap:6px; flex-wrap:wrap; margin-top:auto; }
+  .proj-tech { font-family:var(--mono); font-size:10px; color:var(--text-dim); padding:2px 6px; border:1px solid var(--border); border-radius:2px; text-transform:uppercase; letter-spacing:.06em; }
+  .proj-more { font-family:var(--mono); font-size:10px; color:var(--amber); letter-spacing:.1em; text-transform:uppercase; margin-top:1rem; border-top:1px solid var(--border-lo); padding-top:.75rem; display:flex; align-items:center; gap:5px; }
+  .proj-year { position:absolute; top:1rem; right:1rem; font-family:var(--mono); font-size:10px; color:#3a3530; letter-spacing:.05em; }
+
+  #patents { background:#09090b; }
+  .patents-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1px; background:var(--bg-grid); border:1px solid var(--bg-grid); }
+  .pat-card { background:var(--bg-card); padding:1.5rem; position:relative; display:flex; flex-direction:column; transition:background .2s; }
+  .pat-card:hover { background:var(--bg-card-h); }
+  .pat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:transparent; transition:background .2s; }
+  .pat-card:hover::before { background:var(--blue); }
+  .pat-status { font-family:var(--mono); font-size:10px; letter-spacing:.1em; padding:2px 7px; border-radius:1px; text-transform:uppercase; background:rgba(93,154,174,.15); color:var(--blue); border:1px solid rgba(93,154,174,.3); display:inline-block; margin-bottom:.75rem; align-self:flex-start; }
+  .pat-name { font-family:var(--cond); font-size:19px; font-weight:600; color:var(--text-hi); letter-spacing:.03em; margin:0 0 .5rem; line-height:1.25; }
+  .pat-meta { font-family:var(--mono); font-size:10px; color:#7a9090; letter-spacing:.06em; margin-bottom:.75rem; display:flex; flex-direction:column; gap:3px; }
+  .pat-desc { font-size:13px; color:var(--text-lo); line-height:1.6; flex:1; margin:0 0 1rem; }
+  .pat-footer { display:flex; gap:8px; flex-wrap:wrap; align-items:center; border-top:1px solid var(--border-lo); padding-top:.75rem; margin-top:auto; }
+  .pat-chip { font-family:var(--mono); font-size:10px; color:var(--text-dim); padding:2px 6px; border:1px solid var(--border); border-radius:2px; text-transform:uppercase; letter-spacing:.06em; }
+  .pat-intl { font-family:var(--mono); font-size:10px; color:#5d7a7a; letter-spacing:.06em; margin-left:auto; }
+
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+  .contact-intro p { color:var(--text-lo); line-height:1.75; margin-bottom:1.5rem; }
+  .contact-links { display:flex; flex-direction:column; gap:.75rem; }
+  .contact-link { display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:12px; color:var(--text-dim); text-decoration:none; letter-spacing:.08em; transition:color .15s; }
+  .contact-link:hover { color:var(--amber); }
+  .contact-link-label { font-size:10px; text-transform:uppercase; letter-spacing:.15em; color:#3a3530; min-width:70px; }
+  .contact-form { display:flex; flex-direction:column; gap:1rem; }
+  .form-group { display:flex; flex-direction:column; gap:.4rem; }
+  .form-label { font-family:var(--mono); font-size:10px; color:var(--text-dim); letter-spacing:.15em; text-transform:uppercase; }
+  .form-input,.form-textarea { background:var(--bg-card); border:1px solid var(--border); color:var(--text-md); font-family:var(--body); font-size:14px; padding:10px 14px; border-radius:2px; outline:none; transition:border-color .15s; width:100%; }
+  .form-input:focus,.form-textarea:focus { border-color:var(--amber); }
+  .form-textarea { resize:vertical; min-height:120px; }
+  .form-input::placeholder,.form-textarea::placeholder { color:#3a3530; }
+  .form-submit { font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; padding:12px 24px; background:var(--amber); color:#1a0e02; border:none; border-radius:2px; cursor:pointer; transition:background .15s; align-self:flex-start; }
+  .form-submit:hover { background:var(--amber-h); }
+  .form-note { font-family:var(--mono); font-size:10px; color:#3a3530; letter-spacing:.06em; }
+
+  footer { border-top:1px solid var(--border-lo); padding:2rem 2.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+  .footer-copy { font-family:var(--mono); font-size:10px; color:#3a3530; letter-spacing:.1em; }
+  .footer-links { display:flex; gap:1.5rem; }
+  .footer-links a { font-family:var(--mono); font-size:10px; color:#3a3530; text-decoration:none; letter-spacing:.1em; text-transform:uppercase; transition:color .15s; }
+  .footer-links a:hover { color:var(--amber); }
+
+  .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:500; display:flex; align-items:center; justify-content:center; padding:2rem; opacity:0; pointer-events:none; transition:opacity .25s; }
+  .modal-backdrop.open { opacity:1; pointer-events:all; }
+  .modal { background:#111008; border:1px solid var(--border); max-width:760px; width:100%; max-height:85vh; overflow-y:auto; position:relative; transform:translateY(20px); transition:transform .25s; border-radius:2px; }
+  .modal-backdrop.open .modal { transform:translateY(0); }
+  .modal-header { padding:1.5rem 1.5rem 1.2rem; border-bottom:1px solid var(--border-lo); position:sticky; top:0; background:#111008; z-index:2; }
+  .modal-close { position:absolute; top:1rem; right:1rem; background:transparent; border:1px solid var(--border); color:var(--text-dim); font-family:var(--mono); font-size:14px; width:32px; height:32px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+  .modal-close:hover { border-color:var(--amber); color:var(--amber); }
+  .modal-tag-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:.6rem; }
+  .modal-title { font-family:var(--cond); font-size:28px; font-weight:700; color:var(--text-hi); margin-bottom:.3rem; line-height:1.1; }
+  .modal-role { font-family:var(--mono); font-size:11px; color:#888070; letter-spacing:.08em; text-transform:uppercase; }
+  .modal-body { padding:1.5rem; }
+  .modal-section { margin-bottom:1.5rem; }
+  .modal-section-title { font-family:var(--mono); font-size:10px; color:var(--amber); letter-spacing:.18em; text-transform:uppercase; margin-bottom:.75rem; padding-bottom:.4rem; border-bottom:1px solid var(--border-lo); }
+  .modal-desc { font-size:14px; color:var(--text-lo); line-height:1.75; margin-bottom:.75rem; }
+  .modal-bullets { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+  .modal-bullets li { font-size:13px; color:var(--text-lo); padding-left:1.2rem; position:relative; line-height:1.6; }
+  .modal-bullets li::before { content:'//'; position:absolute; left:0; color:var(--amber); font-family:var(--mono); font-size:10px; top:3px; }
+  .award-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(201,125,42,.1); border:1px solid rgba(201,125,42,.25); padding:8px 14px; border-radius:2px; margin:.25rem 0; }
+  .award-icon { font-size:16px; }
+  .award-text { font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:.06em; }
+  .modal-links { display:flex; gap:.75rem; flex-wrap:wrap; }
+  .modal-link { font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:.1em; text-transform:uppercase; text-decoration:none; padding:7px 14px; border:1px solid rgba(201,125,42,.3); border-radius:2px; transition:all .15s; display:inline-flex; align-items:center; gap:5px; }
+  .modal-link:hover { background:rgba(201,125,42,.1); }
+  .modal-tech-row { display:flex; gap:6px; flex-wrap:wrap; }
+  .modal-tech { font-family:var(--mono); font-size:10px; color:var(--text-dim); padding:2px 8px; border:1px solid var(--border); border-radius:2px; text-transform:uppercase; letter-spacing:.06em; }
+  .modal-video { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border:1px solid var(--border); margin-bottom:.75rem; }
+  .modal-video iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+  .hidden { display:none !important; }
+
+  @media (max-width:768px) {
+    nav { padding:0 1.25rem; } .nav-links { gap:1.2rem; }
+    section { padding:4rem 1.25rem; } #hero { padding:7rem 1.25rem 3rem; }
+    .about-grid,.contact-grid { grid-template-columns:1fr; }
+    .hero-scroll { left:1.25rem; } footer { padding:1.5rem 1.25rem; }
+    #carousel-section { height:340px; }
+    .modal { max-height:95vh; } .modal-backdrop { padding:.5rem; align-items:flex-end; }
+  }
+  @media (max-width:480px) { .nav-links { display:none; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#hero">GF://</a>
   <ul class="nav-links">
@@ -769,321 +205,249 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow">// available for new roles</div>
     <h1 class="hero-name">Gavin<br><span>Fowler</span></h1>
-    <div class="hero-title">Senior Software Engineer &mdash; Audio &middot; Tools &middot; Real-Time Systems</div>
-    <p class="hero-desc">15+ years shipping software across console games, augmented reality, and real-time tooling. PlayStation credits on God of War. Two granted patents. Based in London.</p>
+    <div class="hero-title">Senior Software Engineer &mdash; Games &middot; AR &middot; Real-Time Systems</div>
+    <p class="hero-desc">Senior software engineer with 15+ years across console games, AR, music technology, and real-time systems. Shipped titles on PlayStation, Xbox, Wii, PSP, PC, iOS, and Android across studios in the US and UK — including audio implementation on a BAFTA-nominated God of War title. Two granted patents. Currently at Envisics building holographic HUD technology. Based in London.</p>
     <div class="hero-ctas">
+      <a class="btn btn-primary" href="#about">About</a>
       <a class="btn btn-primary" href="#projects">View projects</a>
-      <a class="btn btn-outline" href="#contact">Get in touch</a>
-      <a class="btn btn-outline" href="https://github.com/nd3c3nt" target="_blank" rel="noopener">GitHub &#8599;</a>
       <a class="btn btn-outline" href="https://linkedin.com/in/gavinfowler" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      <a class="btn btn-outline" href="https://soundcloud.com/nd3c3nt" target="_blank" rel="noopener">SoundCloud &#8599;</a>
+      <a class="btn btn-outline" href="#contact">Get in touch</a>
     </div>
   </div>
   <div class="hero-scroll">Scroll to explore</div>
 </section>
 
-<!-- ABOUT -->
+<div id="carousel-section">
+  <button class="carousel-arrow prev" id="carouselPrev">&#8592;</button>
+  <button class="carousel-arrow next" id="carouselNext">&#8594;</button>
+  <div class="carousel-track" id="carouselTrack">
+    <div class="carousel-slide" data-project="gow-gos">
+      <img src="https://img.youtube.com/vi/lFDVkRMSzsc/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/lFDVkRMSzsc/hqdefault.jpg'" alt="God of War: Ghost of Sparta">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP &middot; 2010</span>
+        <div class="carousel-title">God of War:<br>Ghost of Sparta</div>
+        <div class="carousel-sub">Audio &amp; Technical Design &middot; Ready At Dawn &middot; BAFTA Nominated</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+    <div class="carousel-slide" data-project="gow-origins">
+      <img src="https://img.youtube.com/vi/SXUX4k_yEVY/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/SXUX4k_yEVY/hqdefault.jpg'" alt="God of War: Origins Collection">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PS3 &middot; 2011</span>
+        <div class="carousel-title">God of War:<br>Origins Collection</div>
+        <div class="carousel-sub">Audio Porting &middot; Ready At Dawn &middot; PSP &rarr; PS3 HD Remaster</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+    <div class="carousel-slide" data-project="crayola">
+      <img src="https://img.youtube.com/vi/Fp-5j2UJPDI/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/Fp-5j2UJPDI/hqdefault.jpg'" alt="Crayola Easy Animator">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-ar">&#9733; Award Winner &middot; AR &middot; 2015</span>
+        <div class="carousel-title">Crayola<br>Easy Animator</div>
+        <div class="carousel-sub">Custom Application Lead &middot; DAQRI &middot; Best of Toy Fair 2015</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-nav">
+    <button class="carousel-dot active" data-idx="0"></button>
+    <button class="carousel-dot" data-idx="1"></button>
+    <button class="carousel-dot" data-idx="2"></button>
+  </div>
+</div>
+
 <section id="about">
   <div class="section-inner">
-    <div class="section-eyebrow">// background</div>
+    <div class="section-eyebrow" style="color:var(--blue)">// background</div>
     <h2 class="section-title">About</h2>
-    <div class="section-divider" style="background: var(--blue);"></div>
+    <div class="section-divider" style="background:var(--blue)"></div>
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm a senior software engineer with a career spanning <strong>console game development, augmented reality, and real-time tooling</strong>. My foundation is in C++ — built over 15 years across shipped PlayStation titles, proprietary engines, and performance-sensitive desktop applications.</p>
-        <p>At <strong>Ready At Dawn Studios</strong>, I implemented the full audio pipeline for <em>God of War: Ghost of Sparta</em> on PSP, working directly with sound designers at Sony Santa Monica Studio using Sony's proprietary SCREAM tooling — then ported the entire system to PS3 for the Origins Collection.</p>
-        <p>Since then I've been at <strong>Envisics</strong>, building complex C++/Qt desktop tools for cutting-edge holographic AR HUD technology — integrating hardware systems, real-time visualisation, and internal production workflows — with two granted patents to my name.</p>
-        <p>Away from engineering, I DJ under the alias <strong>nd3c3nt</strong>, playing drum & bass, deep dubstep, and bass music — which keeps my ear well-tuned and my enthusiasm for audio very much alive.</p>
+        <p>I'm a senior software engineer with 15+ years of professional experience across <strong>console games, augmented reality, music technology, and real-time systems</strong>. My career spans studios in the US and UK — from indie PC games and AAA console titles through to holographic AR HUD research at the cutting edge of automotive display technology.</p>
+        <p>In games, I've shipped titles on <strong>PlayStation, Xbox, Wii, PSP, PC, iOS, and Android</strong> across studios including Ready At Dawn, Double Helix Games, Zya/Music Mastermind, and Stratogon. My work on <em>God of War: Ghost of Sparta</em> as audio implementer and technical designer earned a BAFTA nomination. I've worked as a gameplay programmer, audio engineer, tools developer, and technical designer.</p>
+        <p>Since 2017 I've been at <strong>Envisics</strong>, building C++/Qt real-time tools for holographic automotive HUDs — integrating eye-tracking, LiDAR, FPGAs, and sensor hardware at R&D depth — with two granted patents from that work.</p>
+        <p>Away from engineering I DJ as <strong>nd3c3nt</strong> — drum & bass, deep dubstep, bass music — and run live Twitch AV sessions combining music performance with real-time visuals.</p>
       </div>
       <div class="about-stats">
-        <div class="stat-box">
-          <div class="stat-num">15<span>+</span></div>
-          <div class="stat-label">Years C++ experience</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num" style="color: var(--blue);">2</div>
-          <div class="stat-label">Granted patents</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num" style="color: var(--amber);">GoW</div>
-          <div class="stat-label">PlayStation credits</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num" style="color: var(--green);">AR</div>
-          <div class="stat-label">Holographic HUD tech</div>
-        </div>
+        <div class="stat-box"><div class="stat-num">15<span>+</span></div><div class="stat-label">Years experience</div></div>
+        <div class="stat-box"><div class="stat-num" style="color:var(--blue)">2</div><div class="stat-label">Granted patents</div></div>
+        <div class="stat-box"><div class="stat-num" style="color:var(--amber)">GoW</div><div class="stat-label">BAFTA nominated</div></div>
+        <div class="stat-box"><div class="stat-num" style="color:var(--green)">8<span>+</span></div><div class="stat-label">Shipped titles</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
-    <div class="section-eyebrow">// technical stack</div>
+    <div class="section-eyebrow" style="color:var(--green)">// technical stack</div>
     <h2 class="section-title">Skills</h2>
-    <div class="section-divider" style="background: var(--green);"></div>
+    <div class="section-divider" style="background:var(--green)"></div>
     <div class="skills-grid">
-      <div class="skill-group">
-        <div class="skill-group-title">Languages</div>
-        <ul class="skill-list">
-          <li>C++</li><li>C#</li><li>Python</li><li>JavaScript</li><li>SQL</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Game & Console</div>
-        <ul class="skill-list">
-          <li>PSP SDK</li><li>PS3 SDK</li><li>Proprietary engines</li><li>Runtime debugging</li><li>Perforce</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Audio</div>
-        <ul class="skill-list">
-          <li>SCREAM</li><li>FMOD</li><li>OpenAL</li><li>FFMPEG</li><li>Soundbank workflows</li><li>Dialogue / SFX / Music</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Frameworks & Tools</div>
-        <ul class="skill-list">
-          <li>Qt / Qt Widgets</li><li>Unity</li><li>OpenGL</li><li>OpenCV</li><li>CMake</li><li>vcpkg</li><li>Git</li><li>SVN</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Build & Release</div>
-        <ul class="skill-list">
-          <li>Jenkins</li><li>CMake</li><li>Qt IFW</li><li>CI pipelines</li><li>Reproducible builds</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Hardware & Sensing</div>
-        <ul class="skill-list">
-          <li>LiDAR</li><li>Eye-tracking</li><li>RealSense</li><li>PCL</li><li>Calibration systems</li>
-        </ul>
-      </div>
+      <div class="skill-group"><div class="skill-group-title">Languages</div><ul class="skill-list"><li>C++</li><li>C++17/20</li><li>C#</li><li>Python</li><li>JavaScript</li><li>HTML/CSS</li><li>MEL</li><li>HLSL</li><li>GLSL</li><li>MATLAB</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Game & Console</div><ul class="skill-list"><li>PlayStation</li><li>Xbox</li><li>Wii</li><li>PSP SDK</li><li>PS3 SDK</li><li>Proprietary engines</li><li>Gameplay systems</li><li>UI systems</li><li>Cutscene scripting</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Audio</div><ul class="skill-list"><li>SCREAM</li><li>FMOD</li><li>OpenAL</li><li>FFMPEG</li><li>Soundbank workflows</li><li>Dialogue / SFX / Music</li><li>Localisation support</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Graphics & Rendering</div><ul class="skill-list"><li>OpenGL 4.x</li><li>GLSL</li><li>HLSL</li><li>2D/3D rendering</li><li>Point-cloud viz</li><li>AR/HUD rendering</li><li>Shaders</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Frameworks & Tools</div><ul class="skill-list"><li>Qt6 / Qt Widgets</li><li>Unity</li><li>Xamarin</li><li>XNA</li><li>WPF</li><li>OpenCV</li><li>Boost</li><li>CUDA</li><li>NGUI</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Build & CI</div><ul class="skill-list"><li>CMake</li><li>Jenkins</li><li>vcpkg</li><li>Qt IFW</li><li>MSVC</li><li>Automated mobile builds</li><li>Installer workflows</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Source Control</div><ul class="skill-list"><li>Git</li><li>Perforce</li><li>SVN</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Platforms</div><ul class="skill-list"><li>Windows</li><li>iOS</li><li>Android</li><li>PlayStation</li><li>Xbox</li><li>Wii / PSP</li><li>AR hardware</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Hardware & Sensing</div><ul class="skill-list"><li>LiDAR</li><li>Eye-tracking</li><li>RealSense</li><li>Basler cameras</li><li>MCUs</li><li>FPGA interfacing</li><li>HDMI / NDI</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Profiling & Debugging</div><ul class="skill-list"><li>PIX</li><li>VTune</li><li>Purify</li><li>ANTS</li><li>Crashlytics</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
-    <div class="section-eyebrow">// selected work</div>
+    <div class="section-eyebrow" style="color:var(--amber)">// selected work</div>
     <h2 class="section-title">Projects & Credits</h2>
-    <div class="section-divider" style="background: var(--amber);"></div>
-
+    <div class="section-divider" style="background:var(--amber)"></div>
     <div class="filter-row">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="shipped">Shipped titles</button>
       <button class="filter-btn" data-filter="software">AR / Software</button>
-      <button class="filter-btn" data-filter="tools">Tools & engines</button>
-      <button class="filter-btn" data-filter="personal">Personal / Audio</button>
+      <button class="filter-btn" data-filter="music">Music tech</button>
+      <button class="filter-btn" data-filter="personal">Personal</button>
     </div>
-
     <div class="projects-grid" id="projects-grid">
 
-      <!-- GOW GHOST OF SPARTA -->
-      <div class="proj-card cat-shipped" data-cat="shipped">
+      <div class="proj-card cat-shipped" data-cat="shipped" data-project="gow-gos">
         <span class="proj-year">2010</span>
         <div class="proj-tag-row"><span class="proj-tag tag-shipped">Shipped &middot; PSP</span></div>
         <div class="proj-name">God of War: Ghost of Sparta</div>
-        <div class="proj-role">Audio Implementation Engineer &middot; Ready At Dawn</div>
-        <p class="proj-desc">Implemented the full in-game audio pipeline for a Sony first-party flagship title — dialogue, music, SFX, and runtime audio behaviours. Worked directly with sound designers at Sony Santa Monica Studio using Sony's proprietary SCREAM tooling and PSP-era platform SDKs.</p>
-        <div class="proj-tech-row">
-          <span class="proj-tech">C++</span>
-          <span class="proj-tech">PSP SDK</span>
-          <span class="proj-tech">SCREAM</span>
-          <span class="proj-tech">Soundbanks</span>
-          <span class="proj-tech">Proprietary engine</span>
-        </div>
+        <div class="proj-role">Designer / Audio Implementer &middot; Ready At Dawn</div>
+        <p class="proj-desc">BAFTA nominated. Implemented the full audio pipeline working directly with Sony Santa Monica sound designers. Also scripted level events, maintained engine tools in C#/WPF, and created MEL scripts for mocap pipeline.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">C#/WPF</span><span class="proj-tech">PSP SDK</span><span class="proj-tech">SCREAM</span><span class="proj-tech">MEL</span></div>
+        <div class="proj-more">View details &#8599;</div>
       </div>
 
-      <!-- GOW ORIGINS -->
-      <div class="proj-card cat-shipped" data-cat="shipped">
+      <div class="proj-card cat-shipped" data-cat="shipped" data-project="gow-origins">
         <span class="proj-year">2011</span>
         <div class="proj-tag-row"><span class="proj-tag tag-shipped">Shipped &middot; PS3</span></div>
         <div class="proj-name">God of War: Origins Collection</div>
         <div class="proj-role">Audio Porting Engineer &middot; Ready At Dawn</div>
-        <p class="proj-desc">Ported the complete in-house audio implementation and associated soundbanks from PSP to PS3. Addressed platform-specific memory and performance constraints, asset conversion, runtime integration differences, and release-readiness across both PlayStation platforms.</p>
-        <div class="proj-tech-row">
-          <span class="proj-tech">C++</span>
-          <span class="proj-tech">PS3 SDK</span>
-          <span class="proj-tech">Audio porting</span>
-          <span class="proj-tech">Asset pipelines</span>
-        </div>
+        <p class="proj-desc">Ported the complete in-house audio implementation and soundbanks from PSP to PS3. Addressed platform-specific memory constraints, asset conversion, runtime integration, and release-readiness.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">PS3 SDK</span><span class="proj-tech">Audio porting</span><span class="proj-tech">Asset pipelines</span></div>
+        <div class="proj-more">View details &#8599;</div>
       </div>
 
-      <!-- ENVISICS AR TOOLS -->
-      <div class="proj-card cat-software" data-cat="software">
-        <span class="proj-year">2018&ndash;present</span>
+      <div class="proj-card cat-shipped" data-cat="shipped" data-project="gijoe">
+        <span class="proj-year">2009</span>
+        <div class="proj-tag-row"><span class="proj-tag tag-shipped">Shipped &middot; Multi-platform</span></div>
+        <div class="proj-name">G.I. Joe: The Rise of Cobra</div>
+        <div class="proj-role">Gameplay Programmer &middot; Double Helix Games &middot; EA</div>
+        <p class="proj-desc">My first AAA title. Owned weapons and projectile systems across Xbox 360, PS3, PS2, PSP, and Wii. Built subtitle parsing system. Led a month-long E3 pitch demo as sole programmer.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">Multi-platform</span><span class="proj-tech">Gameplay</span><span class="proj-tech">VFX</span></div>
+        <div class="proj-more">View details &#8599;</div>
+      </div>
+
+      <div class="proj-card cat-music" data-cat="music" data-project="zya">
+        <span class="proj-year">2011&ndash;2015</span>
+        <div class="proj-tag-row"><span class="proj-tag tag-music">Shipped &middot; iOS / Android</span></div>
+        <div class="proj-name">Zya / Music Mastermind</div>
+        <div class="proj-role">Senior Software Engineer &middot; Zya / Music Mastermind</div>
+        <p class="proj-desc">Core front-end engineer for 4 years on music-driven game and app products. Shipped Zya (iOS, 2013) and Ditty for Messenger (iOS/Android, 2015). Built UI, gameplay, mobile features, and server communication in Unity and Xamarin.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C#</span><span class="proj-tech">Unity</span><span class="proj-tech">Xamarin</span><span class="proj-tech">iOS</span><span class="proj-tech">Android</span><span class="proj-tech">Jenkins</span></div>
+        <div class="proj-more">View details &#8599;</div>
+      </div>
+
+      <div class="proj-card cat-software" data-cat="software" data-project="envisics">
+        <span class="proj-year">2017&ndash;present</span>
         <div class="proj-tag-row"><span class="proj-tag tag-software">AR / Real-Time</span></div>
         <div class="proj-name">AR HUD Development Tools</div>
         <div class="proj-role">Senior Software Engineer &middot; Envisics</div>
-        <p class="proj-desc">Built and maintained complex C++/Qt desktop tools powering advanced holographic AR HUD development — covering real-time visualisation, hardware calibration, sensor integration (LiDAR, eye-tracking, RealSense), configuration UIs, and internal production workflows.</p>
-        <div class="proj-tech-row">
-          <span class="proj-tech">C++</span>
-          <span class="proj-tech">Qt Widgets</span>
-          <span class="proj-tech">OpenGL</span>
-          <span class="proj-tech">OpenCV</span>
-          <span class="proj-tech">CMake</span>
-          <span class="proj-tech">Windows</span>
-        </div>
+        <p class="proj-desc">Built real-time C++/Qt tools for holographic automotive HUD R&D. Integrated eye-tracking, LiDAR, RealSense, MCUs, and FPGAs. Developed ADAS GPS visualisation and OpenGL rendering systems. Two granted patents.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">Qt6</span><span class="proj-tech">OpenGL</span><span class="proj-tech">Unity/C#</span><span class="proj-tech">CMake</span></div>
+        <div class="proj-more">View details &#8599;</div>
       </div>
 
-      <!-- ENVISICS TOOLCHAIN -->
-      <div class="proj-card cat-tools" data-cat="tools">
-        <span class="proj-year">2018&ndash;present</span>
-        <div class="proj-tag-row"><span class="proj-tag tag-tools">Tooling</span></div>
-        <div class="proj-name">Internal Engineering Toolchain</div>
-        <div class="proj-role">Senior Software Engineer &middot; Envisics</div>
-        <p class="proj-desc">Designed and shipped editor-style engineering tools, logging systems, visual debugging utilities, and calibration pipelines used daily by R&D, optical, hardware, and product teams. Owned build and packaging workflows using CMake, vcpkg, and Qt Installer Framework.</p>
-        <div class="proj-tech-row">
-          <span class="proj-tech">C++</span>
-          <span class="proj-tech">CMake</span>
-          <span class="proj-tech">vcpkg</span>
-          <span class="proj-tech">Qt IFW</span>
-          <span class="proj-tech">Visual Studio</span>
-        </div>
-      </div>
-
-      <!-- CRAYOLA -->
-      <div class="proj-card cat-software" data-cat="software">
-        <span class="proj-year">~2016</span>
+      <div class="proj-card cat-software" data-cat="software" data-project="crayola">
+        <span class="proj-year">2015</span>
         <div class="proj-tag-row"><span class="proj-tag tag-software">AR / Interactive</span></div>
         <div class="proj-name">Crayola Easy Animator</div>
         <div class="proj-role">Custom Application Lead &middot; DAQRI</div>
-        <p class="proj-desc">Led development of a real-time interactive AR application for Crayola's Easy Animator product. Built using C# and Unity across multi-disciplinary teams spanning design, engineering, R&D, and production — delivering spatial, real-time interaction for a consumer-facing product. CI managed with Jenkins.</p>
-        <div class="proj-tech-row">
-          <span class="proj-tech">C#</span>
-          <span class="proj-tech">Unity</span>
-          <span class="proj-tech">Jenkins</span>
-          <span class="proj-tech">AR</span>
-          <span class="proj-tech">Real-time</span>
-        </div>
+        <p class="proj-desc">Led development of a real-time AR animation app for Crayola. Won Best of Toy Fair 2015 (Popular Science & Techlicious). Shipped as a boxed retail product with AR mannequin peripheral on iOS and Android.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C#</span><span class="proj-tech">Unity</span><span class="proj-tech">Jenkins</span><span class="proj-tech">AR</span><span class="proj-tech">iOS/Android</span></div>
+        <div class="proj-more">View details &#8599;</div>
       </div>
 
-      <!-- AUDIO ENGINE -->
-      <div class="proj-card cat-tools" data-cat="tools">
-        <span class="proj-year">Indie era</span>
-        <div class="proj-tag-row"><span class="proj-tag tag-tools">Audio Engine</span></div>
-        <div class="proj-name">Custom Audio Engine Integration</div>
-        <div class="proj-role">Audio Software Engineer &middot; Indie / Various</div>
-        <p class="proj-desc">Implemented and integrated OpenAL, FMOD, and FFMPEG for audio and video playback in indie game projects — covering low-level audio plumbing, runtime integration, and platform-specific considerations outside of middleware-heavy pipelines.</p>
-        <div class="proj-tech-row">
-          <span class="proj-tech">C++</span>
-          <span class="proj-tech">OpenAL</span>
-          <span class="proj-tech">FMOD</span>
-          <span class="proj-tech">FFMPEG</span>
-        </div>
+      <div class="proj-card cat-shipped" data-cat="shipped" data-project="alexandria">
+        <span class="proj-year">2008</span>
+        <div class="proj-tag-row"><span class="proj-tag tag-shipped">Shipped &middot; PC</span></div>
+        <div class="proj-name">Lost Treasures of Alexandria</div>
+        <div class="proj-role">Programmer &middot; Stratogon Entertainment</div>
+        <p class="proj-desc">My first shipped commercial title — a match-3 puzzle adventure published by Big Fish Games. Led a 10-person team building an XNA engine. Implemented audio from scratch with OpenAL and FMOD. Wrote HLSL shaders. PC release only.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">XNA</span><span class="proj-tech">OpenAL</span><span class="proj-tech">FMOD</span><span class="proj-tech">HLSL</span></div>
+        <div class="proj-more">View details &#8599;</div>
       </div>
 
-      <!-- DJ -->
-      <div class="proj-card cat-personal" data-cat="personal">
+      <div class="proj-card cat-personal" data-cat="personal" data-project="dj">
         <span class="proj-year">Ongoing</span>
-        <div class="proj-tag-row"><span class="proj-tag tag-personal">Personal &middot; Audio</span></div>
-        <div class="proj-name">nd3c3nt — DJ & Electronic Music</div>
+        <div class="proj-tag-row"><span class="proj-tag tag-personal">Personal &middot; AV</span></div>
+        <div class="proj-name">nd3c3nt — DJ & Live AV</div>
         <div class="proj-role">Active DJ &middot; Drum &amp; Bass / Dubstep / Bass Music</div>
-        <p class="proj-desc">Active DJ under the alias nd3c3nt, performing drum & bass, deep dubstep, 140, and bass music. Hands-on experience with Rekordbox, Pioneer DJ systems, MIDI, DMX, and Resolume — bridging practical audio culture with engineering instincts around timing, dynamics, and signal flow.</p>
-        <div class="proj-tech-row">
-          <span class="proj-tech">Rekordbox</span>
-          <span class="proj-tech">Pioneer DJ</span>
-          <span class="proj-tech">MIDI</span>
-          <span class="proj-tech">DMX</span>
-          <span class="proj-tech">Resolume</span>
-        </div>
-        <a class="proj-link" href="https://github.com/nd3c3nt" target="_blank" rel="noopener">GitHub &#8599;</a>
+        <p class="proj-desc">Active DJ performing drum & bass, deep dubstep, 140, and bass music. Live Twitch AV sessions combining music performance with real-time VFX. Tools: Rekordbox, Pioneer DJ, Resolume, DMX, MIDI.</p>
+        <div class="proj-tech-row"><span class="proj-tech">Rekordbox</span><span class="proj-tech">Pioneer DJ</span><span class="proj-tech">Resolume</span><span class="proj-tech">DMX</span><span class="proj-tech">MIDI</span></div>
+        <a class="proj-more" href="https://soundcloud.com/nd3c3nt" target="_blank" rel="noopener">SoundCloud &#8599;</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- PATENTS -->
 <section id="patents">
   <div class="section-inner">
-    <div class="section-eyebrow">// intellectual property</div>
+    <div class="section-eyebrow" style="color:var(--blue)">// intellectual property</div>
     <h2 class="section-title">Granted Patents</h2>
-    <div class="section-divider" style="background: var(--blue);"></div>
+    <div class="section-divider" style="background:var(--blue)"></div>
     <div class="patents-grid">
-
-      <!-- PATENT 1 -->
       <div class="pat-card">
         <span class="pat-status">&#10003; Granted</span>
         <div class="pat-name">LiDAR — Scanning Structured Light</div>
-        <div class="pat-meta">
-          <div>GB Patent &nbsp;2597771 &nbsp;&middot;&nbsp; Application 2012142.2</div>
-          <div>Ref P200052GB &nbsp;&middot;&nbsp; Also filed internationally</div>
-        </div>
-        <p class="pat-desc">A granted patent covering structured light scanning techniques in LiDAR systems, developed during work on advanced AR HUD technology at Envisics. Addresses real-world sensing and spatial data acquisition challenges relevant to automotive and AR contexts.</p>
-        <div class="pat-footer">
-          <span class="pat-chip">LiDAR</span>
-          <span class="pat-chip">Structured light</span>
-          <span class="pat-chip">Sensing</span>
-          <span class="pat-intl">GB &middot; International</span>
-        </div>
+        <div class="pat-meta"><div>GB Patent &nbsp;2597771 &nbsp;&middot;&nbsp; Application 2012142.2</div><div>Ref P200052GB &nbsp;&middot;&nbsp; Also filed internationally</div></div>
+        <p class="pat-desc">A granted patent covering structured light scanning techniques in LiDAR systems, developed at Envisics. Addresses sensing and spatial data acquisition challenges in automotive and AR HUD contexts.</p>
+        <div class="pat-footer"><span class="pat-chip">LiDAR</span><span class="pat-chip">Structured light</span><span class="pat-chip">Sensing</span><span class="pat-intl">GB &middot; International</span></div>
       </div>
-
-      <!-- PATENT 2 -->
       <div class="pat-card">
         <span class="pat-status">&#10003; Granted</span>
         <div class="pat-name">Hologram Compute via Eye-Tracking & Gaze</div>
-        <div class="pat-meta">
-          <div>GB Patent &nbsp;2610204 &nbsp;&middot;&nbsp; Application 2112216.3</div>
-          <div>Ref P200094GB &nbsp;&middot;&nbsp; Also filed internationally</div>
-        </div>
-        <p class="pat-desc">A granted patent covering hologram computation driven by eye-tracking and gaze data — a core technique for efficient, perceptually optimised holographic AR displays. Developed at Envisics as part of their holographic HUD platform for automotive AR.</p>
-        <div class="pat-footer">
-          <span class="pat-chip">Holography</span>
-          <span class="pat-chip">Eye-tracking</span>
-          <span class="pat-chip">AR / HUD</span>
-          <span class="pat-intl">GB &middot; International</span>
-        </div>
+        <div class="pat-meta"><div>GB Patent &nbsp;2610204 &nbsp;&middot;&nbsp; Application 2112216.3</div><div>Ref P200094GB &nbsp;&middot;&nbsp; Also filed internationally</div></div>
+        <p class="pat-desc">A granted patent covering hologram computation driven by eye-tracking and gaze data — a core technique for perceptually optimised holographic AR displays. Developed at Envisics for their automotive HUD platform.</p>
+        <div class="pat-footer"><span class="pat-chip">Holography</span><span class="pat-chip">Eye-tracking</span><span class="pat-chip">AR / HUD</span><span class="pat-intl">GB &middot; International</span></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <div class="section-eyebrow">// get in touch</div>
+    <div class="section-eyebrow" style="color:var(--amber)">// get in touch</div>
     <h2 class="section-title">Contact</h2>
-    <div class="section-divider" style="background: var(--amber);"></div>
+    <div class="section-divider" style="background:var(--amber)"></div>
     <div class="contact-grid">
       <div class="contact-intro">
-        <p>I'm currently open to new opportunities in game audio engineering, tools development, and real-time systems — particularly roles where robust engineering supports creative production.</p>
+        <p>I'm currently open to new opportunities in games engineering, AR/MR, tools development, and real-time interactive systems — particularly roles where robust engineering supports creative production.</p>
         <p>Based in London. Open to hybrid and remote arrangements.</p>
         <div class="contact-links">
-          <a class="contact-link" href="https://linkedin.com/in/gavinfowler" target="_blank" rel="noopener">
-            <span class="contact-link-label">LinkedIn</span>
-            linkedin.com/in/gavinfowler &#8599;
-          </a>
-          <a class="contact-link" href="https://github.com/nd3c3nt" target="_blank" rel="noopener">
-            <span class="contact-link-label">GitHub</span>
-            github.com/nd3c3nt &#8599;
-          </a>
+          <a class="contact-link" href="https://linkedin.com/in/gavinfowler" target="_blank" rel="noopener"><span class="contact-link-label">LinkedIn</span>linkedin.com/in/gavinfowler &#8599;</a>
+          <a class="contact-link" href="https://soundcloud.com/nd3c3nt" target="_blank" rel="noopener"><span class="contact-link-label">SoundCloud</span>soundcloud.com/nd3c3nt &#8599;</a>
         </div>
       </div>
       <div>
-        <!-- REPLACE action URL with your Formspree endpoint e.g. https://formspree.io/f/xabcdefg -->
         <form class="contact-form" action="https://formspree.io/f/xpqbpnjg" method="POST">
-          <div class="form-group">
-            <label class="form-label" for="name">Name</label>
-            <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" name="message" placeholder="What's the role / project?" required></textarea>
-          </div>
+          <div class="form-group"><label class="form-label" for="name">Name</label><input class="form-input" type="text" id="name" name="name" placeholder="Your name" required></div>
+          <div class="form-group"><label class="form-label" for="email">Email</label><input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required></div>
+          <div class="form-group"><label class="form-label" for="message">Message</label><textarea class="form-textarea" id="message" name="message" placeholder="What's the role / project?" required></textarea></div>
           <button class="form-submit" type="submit">Send message</button>
           <p class="form-note">// your email is never exposed on this site</p>
         </form>
@@ -1092,42 +456,184 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-copy">&copy; 2025 Gavin Fowler. Built with intent.</div>
   <div class="footer-links">
     <a href="https://linkedin.com/in/gavinfowler" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/nd3c3nt" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://soundcloud.com/nd3c3nt" target="_blank" rel="noopener">SoundCloud</a>
     <a href="#hero">Back to top</a>
   </div>
 </footer>
 
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-tag-row" id="modalTags"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-role" id="modalRole"></div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
 <script>
-  // Project filter
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      document.querySelectorAll('.proj-card').forEach(card => {
-        card.classList.toggle('hidden', f !== 'all' && card.dataset.cat !== f);
-      });
-    });
-  });
+const projects = {
+  'gow-gos': {
+    tags: ['<span class="proj-tag tag-shipped">Shipped &middot; PSP</span>'],
+    title: 'God of War: Ghost of Sparta',
+    role: 'Designer / Technical Designer / Audio Implementer &middot; Ready At Dawn Studios',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">God of War: Ghost of Sparta is a 2010 action-adventure developed by Ready At Dawn and published by Sony for PSP. It sold nearly 3.2 million copies worldwide. My role was a hybrid of audio implementation, level scripting, and tools programming.</p></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Awards</div><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">BAFTA Nominated — Handheld (2011 BAFTA Video Game Awards)</span></div><br><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Winner — Best Handheld Game (2010 Spike Video Game Awards)</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Audio Implementation</div><ul class="modal-bullets"><li>Implemented the full in-game audio pipeline — dialogue, music, SFX, and runtime audio behaviours</li><li>Worked directly with sound designers at Sony Santa Monica Studio throughout production</li><li>Used Sony's proprietary SCREAM audio tooling to integrate and manage soundbanks on PSP hardware</li><li>Communicated daily with off-site SCEA audio and music departments</li><li>Imported, catalogued, and managed audio asset deliverables</li><li>Supported the localisation team for multilingual audio content</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Tools & Technical Design</div><ul class="modal-bullets"><li>Maintained C#/WPF portions of Ready At Dawn's proprietary engine toolset</li><li>Implemented video playback within the proprietary engine</li><li>Created MEL scripts to convert MVN motion-capture animation files into the engine's proprietary format</li><li>Scripted level events, interactions, cutscenes, and custom gameplay scenarios</li><li>Collaborated with programmers to identify, reproduce, and fix gameplay bugs</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Gameplay Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/lFDVkRMSzsc" title="God of War Ghost of Sparta Gameplay" allowfullscreen loading="lazy"></iframe></div></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">C#/WPF</span><span class="modal-tech">PSP SDK</span><span class="modal-tech">SCREAM</span><span class="modal-tech">Soundbanks</span><span class="modal-tech">MEL</span><span class="modal-tech">Proprietary engine</span><span class="modal-tech">Perforce</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://en.wikipedia.org/wiki/God_of_War:_Ghost_of_Sparta" target="_blank" rel="noopener">Wikipedia &#8599;</a><a class="modal-link" href="https://blog.playstation.com/2010/11/02/god-of-war-ghost-of-sparta-is-now-available-first-reviews-are-in/" target="_blank" rel="noopener">PlayStation Blog &#8599;</a></div></div>`
+  },
+  'gow-origins': {
+    tags: ['<span class="proj-tag tag-shipped">Shipped &middot; PS3</span>'],
+    title: 'God of War: Origins Collection',
+    role: 'Audio Porting Engineer &middot; Ready At Dawn Studios',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">The God of War: Origins Collection is a 2011 HD remaster compilation for PS3, featuring both Chains of Olympus and Ghost of Sparta — ported from PSP by Ready At Dawn. The collection brought 1080p, stereoscopic 3D, 60fps, and DualShock 3 support.</p></div>
+    <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Ported Ready At Dawn's complete in-house audio implementation from PSP to PS3</li><li>Migrated the full soundbank library ensuring correct playback and behaviour on PS3 hardware</li><li>Addressed platform-specific memory and performance constraints in the PS3 audio subsystem</li><li>Managed asset conversion pipelines and runtime integration differences between platforms</li><li>Supported release-readiness across both platforms simultaneously</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Trailer</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/SXUX4k_yEVY" title="God of War Origins Collection Trailer" allowfullscreen loading="lazy"></iframe></div></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">PS3 SDK</span><span class="modal-tech">Audio porting</span><span class="modal-tech">Asset pipelines</span><span class="modal-tech">Soundbanks</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://en.wikipedia.org/wiki/God_of_War:_Origins_Collection" target="_blank" rel="noopener">Wikipedia &#8599;</a></div></div>`
+  },
+  'gijoe': {
+    tags: ['<span class="proj-tag tag-shipped">Shipped &middot; Multi-platform</span>'],
+    title: 'G.I. Joe: The Rise of Cobra',
+    role: 'Gameplay Programmer &middot; Double Helix Games &middot; Published by EA &middot; 2009',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">G.I. Joe: The Rise of Cobra is a 2009 third-person action game published by EA, based on the Paramount Pictures film. Shipped across Xbox 360, PS3, PS2, PSP, and Wii. My first AAA title — a significant step up in production scale and platform scope.</p></div>
+    <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Created new weapon and projectile types and expanded existing projectile systems across all platforms</li><li>Provided designers with flexible data-driven tools to tune and balance weapon and projectile attributes</li><li>Worked closely with VFX artists to add engine functionality and debug particle-related issues</li><li>Built a system to parse subtitle text from Excel sheets and integrated it into the existing movie player</li><li>Served as lead programmer on a month-long E3 pitch demo — sole programmer on the deliverable</li><li>Supported production across Xbox 360, PS3, PS2, PSP, and Wii simultaneously</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Gameplay Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/8oOdRhHrRnQ" title="GI Joe Rise of Cobra Gameplay" allowfullscreen loading="lazy"></iframe></div></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">Xbox 360</span><span class="modal-tech">PS3</span><span class="modal-tech">PSP</span><span class="modal-tech">Wii</span><span class="modal-tech">Gameplay systems</span><span class="modal-tech">Projectile physics</span><span class="modal-tech">VFX integration</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://en.wikipedia.org/wiki/G.I._Joe:_The_Rise_of_Cobra_(video_game)" target="_blank" rel="noopener">Wikipedia &#8599;</a></div></div>`
+  },
+  'zya': {
+    tags: ['<span class="proj-tag tag-music">Shipped &middot; iOS / Android / PC</span>'],
+    title: 'Zya / Music Mastermind',
+    role: 'Senior Software Engineer &middot; Zya / Music Mastermind &middot; 2011–2015',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Zya (later Music Mastermind) was a Calabasas-based startup building music-driven game and application products. Over four years as a core front-end engineer I shipped two consumer products reaching app stores globally.</p></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Shipped Products</div><div class="award-badge"><span class="award-icon">📱</span><span class="award-text">Zya — iOS (November 2013)</span></div><br><div class="award-badge"><span class="award-icon">📱</span><span class="award-text">Ditty for Messenger — iOS / Android (March 2015)</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Core front-end engineer responsible for UI and gameplay programming across PC, iOS, and Android</li><li>Built applications using Unity and Xamarin across multiple platforms</li><li>Led port of a PC product to iOS including substantial redesign for mobile interaction and usability</li><li>Collaborated with art and design teams to refine UX and product feel</li><li>Refactored legacy systems and built new systems to improve stability and maintainability</li><li>Implemented client-side server communication and Couchbase database integration</li><li>Configured automated Jenkins builds for development and release configurations</li><li>Set up Android purchasing in Google Play Developer Console and integrated in-app purchasing</li><li>Implemented push notifications via Urban Airship and crash reporting via Xamarin Insights</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C#</span><span class="modal-tech">Unity</span><span class="modal-tech">Xamarin</span><span class="modal-tech">iOS</span><span class="modal-tech">Android</span><span class="modal-tech">Jenkins</span><span class="modal-tech">Couchbase</span><span class="modal-tech">Urban Airship</span><span class="modal-tech">Crashlytics</span></div></div>`
+  },
+  'envisics': {
+    tags: ['<span class="proj-tag tag-software">AR / Real-Time</span>'],
+    title: 'AR HUD Development Tools — Envisics',
+    role: 'Senior Software Engineer &middot; Envisics &middot; Dec 2017–Present',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Envisics develops next-generation holographic AR HUD technology for automotive applications. As a senior software engineer I've been central to the real-time tooling, hardware integration, and R&D systems underpinning their engineering workflows — with two granted patents arising from this work.</p></div>
+    <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Developed and maintained large C++/Qt applications to drive, calibrate, test, and optimise prototype holographic HUD systems</li><li>Created OpenGL-based rendering systems for 2D/3D content and real-time AR HUD visualisation</li><li>Built Unity/C# workflows for AR content, point-cloud/mesh data, demos, and technical validation</li><li>Integrated hardware in test vehicles and lab environments — eye-tracking, LiDAR, RealSense, MCUs, FPGAs, HDMI, NDI</li><li>Developed methods to convert open-source GPS/map data into 3D ADAS-style driver information displays</li><li>Supported high-profile investor and client demonstrations requiring stable runtime behaviour and rapid iteration</li><li>Improved CMake build configuration, dependency management, installer workflows, and Jenkins build stability</li><li>Provided technical guidance across UI, build systems, hardware integration, and application architecture</li><li>Named inventor on two granted GB patents (also filed internationally)</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">C++17/20</span><span class="modal-tech">Qt6</span><span class="modal-tech">OpenGL</span><span class="modal-tech">OpenCV</span><span class="modal-tech">Unity/C#</span><span class="modal-tech">CMake</span><span class="modal-tech">vcpkg</span><span class="modal-tech">Jenkins</span><span class="modal-tech">CUDA</span><span class="modal-tech">Boost</span><span class="modal-tech">LiDAR</span><span class="modal-tech">Eye-tracking</span></div></div>`
+  },
+  'crayola': {
+    tags: ['<span class="proj-tag tag-software">AR / Interactive</span>'],
+    title: 'Crayola Easy Animator',
+    role: 'Custom Application Lead &middot; DAQRI &middot; 2015',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Crayola Easy Animator is a consumer AR product — a retail-boxed app and physical mannequin peripheral letting children create animated videos using AR and stop-motion techniques. Shipped 2015, sold at major retailers for $24.99.</p></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Awards</div><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Best of Toy Fair 2015 — Popular Science</span></div><br><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Best of Toy Fair 2015 — Techlicious</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Led development of the real-time AR application powering the product</li><li>Built using C# and Unity with DAQRI's proprietary 4D AR technology</li><li>Developed "Smooth Action Technology" — the interpolation system filling in animation frames between mannequin poses</li><li>Managed team members, conducted code reviews, and supported technical planning</li><li>Submitted to Google Play Store and Apple App Store; managed CI with Jenkins</li><li>Coordinated across production, QA, build, art, and engineering teams to hit release schedule</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Product Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/Fp-5j2UJPDI" title="Crayola Easy Animator Demo" allowfullscreen loading="lazy"></iframe></div></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C#</span><span class="modal-tech">Unity</span><span class="modal-tech">Jenkins</span><span class="modal-tech">DAQRI 4D AR</span><span class="modal-tech">iOS</span><span class="modal-tech">Android</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://www.amazon.com/DAQRI-Crayola-Easy-Animator/dp/B0186QCB7Y" target="_blank" rel="noopener">Amazon listing &#8599;</a></div></div>`
+  },
+  'alexandria': {
+    tags: ['<span class="proj-tag tag-shipped">Shipped &middot; PC</span>'],
+    title: 'Lost Treasures of Alexandria',
+    role: 'Programmer &middot; Stratogon Entertainment &middot; 2007–2008',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Lost Treasures of Alexandria is a match-3 puzzle adventure published by Big Fish Games (April 2008). My first shipped commercial title — and where I established the audio engineering foundations I carried through my entire games career. PC release only; a later DS port was handled by a separate team.</p></div>
+    <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Led a 10-person team developing a game engine using XNA</li><li>Implemented the game's audio system from scratch using OpenAL and FMOD</li><li>Integrated FFMPEG for full-motion video cutscene playback</li><li>Developed and implemented pixel and vertex shaders using HLSL</li><li>Designed and created audio content for the game</li><li>Set up and maintained Tortoise SVN source control</li><li>Researched and evaluated new technology for production use</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">XNA</span><span class="modal-tech">OpenAL</span><span class="modal-tech">FMOD</span><span class="modal-tech">FFMPEG</span><span class="modal-tech">HLSL</span><span class="modal-tech">SVN</span><span class="modal-tech">Windows</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://www.bigfishgames.com/the-lost-treasures-of-alexandria-f2423t1l1.html" target="_blank" rel="noopener">Big Fish Games &#8599;</a><a class="modal-link" href="https://gamefaqs.gamespot.com/pc/267902-the-lost-treasures-of-alexandria/data" target="_blank" rel="noopener">GameFAQs &#8599;</a></div></div>`
+  },
+  'dj': {
+    tags: ['<span class="proj-tag tag-personal">Personal &middot; AV</span>'],
+    title: 'nd3c3nt — DJ & Live AV',
+    role: 'Active DJ &middot; Drum & Bass / Dubstep / Bass Music',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Active DJ performing drum & bass, deep dubstep, 140, and bass music under the alias nd3c3nt. Beyond DJing, experience creating and supporting live interactive audiovisual experiences — including Twitch-based streams combining music performance with accompanying real-time VFX.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Tools & Kit</div><ul class="modal-bullets"><li>Rekordbox and Pioneer DJ systems for performance and library management</li><li>Resolume for real-time VFX and visual content during live streams</li><li>DMX for lighting control in live performance contexts</li><li>MIDI integration for hardware control and performance triggering</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">Rekordbox</span><span class="modal-tech">Pioneer DJ</span><span class="modal-tech">Resolume</span><span class="modal-tech">DMX</span><span class="modal-tech">MIDI</span><span class="modal-tech">Twitch</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://soundcloud.com/nd3c3nt" target="_blank" rel="noopener">SoundCloud &#8599;</a></div></div>`
+  }
+};
 
-  // Nav active state on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 80) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--amber)' : '';
+const backdrop = document.getElementById('modalBackdrop');
+const modalClose = document.getElementById('modalClose');
+
+function openModal(id) {
+  const p = projects[id]; if (!p) return;
+  document.getElementById('modalTags').innerHTML = p.tags.join('');
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalRole').textContent = p.role;
+  document.getElementById('modalBody').innerHTML = p.body;
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  backdrop.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { document.getElementById('modalBody').innerHTML = ''; }, 300);
+}
+modalClose.addEventListener('click', closeModal);
+backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.querySelectorAll('.proj-card[data-project]').forEach(card => {
+  card.addEventListener('click', e => { if (e.target.tagName === 'A') return; openModal(card.dataset.project); });
+});
+
+const track = document.getElementById('carouselTrack');
+const dots = document.querySelectorAll('.carousel-dot');
+const slides = document.querySelectorAll('.carousel-slide');
+let current = 0, autoTimer;
+function goTo(idx) {
+  current = (idx + slides.length) % slides.length;
+  track.style.transform = `translateX(-${current * 100}%)`;
+  dots.forEach((d,i) => d.classList.toggle('active', i === current));
+}
+function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 4500); }
+function stopAuto() { clearInterval(autoTimer); }
+document.getElementById('carouselPrev').addEventListener('click', () => { stopAuto(); goTo(current-1); startAuto(); });
+document.getElementById('carouselNext').addEventListener('click', () => { stopAuto(); goTo(current+1); startAuto(); });
+dots.forEach(d => d.addEventListener('click', () => { stopAuto(); goTo(+d.dataset.idx); startAuto(); }));
+const cs = document.getElementById('carousel-section');
+cs.addEventListener('mouseenter', stopAuto);
+cs.addEventListener('mouseleave', startAuto);
+slides.forEach(slide => {
+  slide.addEventListener('click', () => {
+    const pid = slide.dataset.project;
+    const card = document.querySelector(`.proj-card[data-project="${pid}"]`);
+    if (!card) return;
+    document.getElementById('projects').scrollIntoView({ behavior:'smooth' });
+    setTimeout(() => {
+      document.querySelectorAll('.proj-card').forEach(c => c.classList.remove('highlighted'));
+      card.classList.add('highlighted');
+      card.scrollIntoView({ behavior:'smooth', block:'center' });
+      setTimeout(() => card.classList.remove('highlighted'), 2500);
+    }, 600);
+  });
+});
+startAuto();
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.proj-card').forEach(card => {
+      card.classList.toggle('hidden', f !== 'all' && card.dataset.cat !== f);
     });
   });
+});
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--amber)' : ''; });
+}, { passive:true });
 </script>
-
 </body>
 </html>
