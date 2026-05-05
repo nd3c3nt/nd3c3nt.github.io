@@ -45,10 +45,9 @@
 
   #carousel-section { padding:0; position:relative; overflow:hidden; background:#000; height:480px; }
   .carousel-track { display:flex; height:100%; transition:transform .6s cubic-bezier(.4,0,.2,1); }
-  .carousel-slide { min-width:100%; height:100%; position:relative; cursor:pointer; flex-shrink:0; overflow:hidden; }
-  .carousel-slide .slide-bg { position:absolute; inset:-20px; background-size:cover; background-position:center; filter:blur(18px) brightness(0.4) saturate(0.6); transform:scale(1.05); z-index:0; }
-  .carousel-slide img { position:relative; z-index:1; width:100%; height:100%; object-fit:contain; object-position:center; display:block; opacity:.9; transition:opacity .3s; }
-  .carousel-slide:hover img { opacity:1; }
+  .carousel-slide { min-width:100%; height:100%; position:relative; cursor:pointer; flex-shrink:0; }
+  .carousel-slide img { width:100%; height:100%; object-fit:cover; opacity:.55; transition:opacity .3s; display:block; }
+  .carousel-slide:hover img { opacity:.7; }
   .carousel-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 50%,transparent 100%); }
   .carousel-caption { position:absolute; bottom:0; left:0; right:0; padding:2rem 2.5rem; }
   .carousel-badge { font-family:var(--mono); font-size:10px; letter-spacing:.15em; text-transform:uppercase; padding:3px 9px; border-radius:1px; margin-bottom:.6rem; display:inline-block; }
@@ -758,7 +757,6 @@ const projects = {
     role: 'Senior Software Engineer &middot; Envisics &middot; Dec 2017–Present',
     body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Envisics develops next-generation holographic AR HUD technology for automotive applications. As a senior software engineer I've been central to the real-time tooling, hardware integration, and R&D systems underpinning their engineering workflows — with two granted patents arising from this work.</p></div>
     <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Developed and maintained large C++/Qt applications to drive, calibrate, test, and optimise prototype holographic HUD systems</li><li>Created OpenGL-based rendering systems for 2D/3D content and real-time AR HUD visualisation</li><li>Built Unity/C# workflows for AR content, point-cloud/mesh data, demos, and technical validation</li><li>Integrated hardware in test vehicles and lab environments — eye-tracking, LiDAR, RealSense, MCUs, FPGAs, HDMI, NDI</li><li>Developed methods to convert open-source GPS/map data into 3D ADAS-style driver information displays</li><li>Supported high-profile investor and client demonstrations requiring stable runtime behaviour and rapid iteration</li><li>Improved CMake build configuration, dependency management, installer workflows, and Jenkins build stability</li><li>Provided technical guidance across UI, build systems, hardware integration, and application architecture</li><li>Named inventor on two granted GB patents (also filed internationally)</li></ul></div>
-    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Company Overview</div><div class="modal-video"><video controls playsinline style="width:100%;display:block"><source src="https://envisics.com/wp-content/uploads/2024/11/j952_envisics_3d_animation_corp_overview_v20a-1080p.mp4" type="video/mp4">Your browser does not support video playback.</video></div></div>
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">C++17/20</span><span class="modal-tech">Qt6</span><span class="modal-tech">OpenGL</span><span class="modal-tech">OpenCV</span><span class="modal-tech">Unity/C#</span><span class="modal-tech">CMake</span><span class="modal-tech">vcpkg</span><span class="modal-tech">Jenkins</span><span class="modal-tech">CUDA</span><span class="modal-tech">Boost</span><span class="modal-tech">LiDAR</span><span class="modal-tech">Eye-tracking</span></div></div>`
   },
   'crayola': {
@@ -768,7 +766,7 @@ const projects = {
     body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Crayola Easy Animator is a consumer AR product — a retail-boxed app and physical mannequin peripheral letting children create animated videos using AR and stop-motion techniques. Shipped 2015, sold at major retailers for $24.99.</p></div>
     <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Awards</div><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Best of Toy Fair 2015 — Popular Science</span></div><br><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Best of Toy Fair 2015 — Techlicious</span></div></div>
     <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Led development of the real-time AR application powering the product</li><li>Built using C# and Unity with DAQRI's proprietary 4D AR technology</li><li>Developed "Smooth Action Technology" — the interpolation system filling in animation frames between mannequin poses</li><li>Managed team members, conducted code reviews, and supported technical planning</li><li>Submitted to Google Play Store and Apple App Store; managed CI with Jenkins</li><li>Coordinated across production, QA, build, art, and engineering teams to hit release schedule</li></ul></div>
-    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Product Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/ipcvMiBylVI" title="Crayola Easy Animator Demo" allowfullscreen loading="lazy"></iframe></div></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Product Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/wkTSCN-zihI" title="Crayola Easy Animator Demo" allowfullscreen loading="lazy"></iframe></div></div>
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C#</span><span class="modal-tech">Unity</span><span class="modal-tech">Jenkins</span><span class="modal-tech">DAQRI 4D AR</span><span class="modal-tech">iOS</span><span class="modal-tech">Android</span></div></div>
     <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://www.amazon.com/DAQRI-Crayola-Easy-Animator/dp/B0186QCB7Y" target="_blank" rel="noopener">Amazon listing &#8599;</a></div></div>`
   },
@@ -814,17 +812,6 @@ backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 document.querySelectorAll('.proj-card[data-project]').forEach(card => {
   card.addEventListener('click', e => { if (e.target.tagName === 'A') return; openModal(card.dataset.project); });
-});
-
-// ── CAROUSEL BLURRED BACKGROUNDS ──
-// Auto-generates a blurred version of each slide image as the background fill
-document.querySelectorAll('.carousel-slide').forEach(slide => {
-  const img = slide.querySelector('img');
-  const bg = document.createElement('div');
-  bg.className = 'slide-bg';
-  const setSrc = () => { bg.style.backgroundImage = `url('${img.src}')`; };
-  if (img.complete) setSrc(); else img.addEventListener('load', setSrc);
-  slide.insertBefore(bg, slide.firstChild);
 });
 
 const track = document.getElementById('carouselTrack');
