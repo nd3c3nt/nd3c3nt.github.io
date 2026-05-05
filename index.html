@@ -836,7 +836,7 @@ function goTo(idx) {
   track.style.transform = `translateX(-${current * 100}%)`;
   dots.forEach((d,i) => d.classList.toggle('active', i === current));
 }
-function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 4500); }
+function startAuto() { clearInterval(autoTimer); autoTimer = setInterval(() => goTo(current + 1), 4500); }
 function stopAuto() { clearInterval(autoTimer); }
 document.getElementById('carouselPrev').addEventListener('click', () => { stopAuto(); goTo(current-1); startAuto(); });
 document.getElementById('carouselNext').addEventListener('click', () => { stopAuto(); goTo(current+1); startAuto(); });
