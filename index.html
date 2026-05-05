@@ -58,8 +58,8 @@
   .carousel-cta { font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:.12em; text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; }
   .carousel-cta::after { content:'→'; }
   .carousel-nav { position:absolute; bottom:1.5rem; right:2.5rem; display:flex; gap:8px; }
-  .carousel-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.2); border:none; cursor:pointer; transition:all .2s; padding:0; }
-  .carousel-dot.active { background:var(--amber); transform:scale(1.2); }
+  .carousel-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.2); border:none; cursor:pointer; transition:all .2s; padding:0; }
+  .carousel-dot.active { background:var(--amber); transform:scale(1.3); }
   .carousel-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.5); border:1px solid var(--border); color:var(--text-md); font-family:var(--mono); font-size:16px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .2s; z-index:2; }
   .carousel-arrow:hover { background:rgba(201,125,42,.2); border-color:var(--amber); color:var(--amber); }
   .carousel-arrow.prev { left:1.5rem; }
@@ -240,10 +240,12 @@
          (put image files in an /img folder next to index.html in your repo)
       4. Update the badge text, title, subtitle, and cta text
       5. Add a matching dot button in the carousel-nav div below:
-           <button class="carousel-dot" data-idx="3"></button>
+           <button class="carousel-dot" data-idx="N"></button>
          (increment the data-idx by 1 for each new slide)
     ========================================================
     -->
+
+    <!-- Slide 0 -->
     <div class="carousel-slide" data-project="gow-gos">
       <img src="img/gow-gos.jpg" alt="God of War: Ghost of Sparta">
       <div class="carousel-overlay"></div>
@@ -254,8 +256,46 @@
         <span class="carousel-cta">View project details</span>
       </div>
     </div>
+
+    <!-- Slide 1 -->
+    <div class="carousel-slide" data-project="gijoe">
+      <img src="img/gijoe_1.jpg" alt="G.I. Joe: The Rise of Cobra">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
+        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
+        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-slide" data-project="gow-gos">
+      <img src="img/God_Of_War_Ghost_Of_Sparta_1.jpg" alt="God of War: Ghost of Sparta">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP &middot; 2010</span>
+        <div class="carousel-title">God of War:<br>Ghost of Sparta</div>
+        <div class="carousel-sub">Audio &amp; Technical Design &middot; Ready At Dawn &middot; BAFTA Nominated</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-slide" data-project="alexandria">
+      <img src="img/alexandria_1.jpg" alt="Lost Treasures of Alexandria">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PC &middot; 2008</span>
+        <div class="carousel-title">Lost Treasures<br>of Alexandria</div>
+        <div class="carousel-sub">Programmer &middot; Stratogon Entertainment &middot; First shipped title</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
     <div class="carousel-slide" data-project="gow-origins">
-      <img src="img/gow-origins.jpg" alt="God of War: Origins Collection">
+      <img src="img/God_Of_War_Ghost_Of_Sparta_2.jpg" alt="God of War: Origins Collection">
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
         <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PS3 &middot; 2011</span>
@@ -264,6 +304,56 @@
         <span class="carousel-cta">View project details</span>
       </div>
     </div>
+
+    <!-- Slide 5 -->
+    <div class="carousel-slide" data-project="gijoe">
+      <img src="img/gi-joe.jpg" alt="G.I. Joe: The Rise of Cobra">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
+        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
+        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="carousel-slide" data-project="envisics">
+      <img src="img/envisics.jpg" alt="Envisics AR HUD">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-ar">&#9670; AR / Real-Time &middot; 2017&ndash;Present</span>
+        <div class="carousel-title">Envisics<br>AR HUD Tools</div>
+        <div class="carousel-sub">Senior Software Engineer &middot; Holographic Automotive HUD &middot; 2 Patents</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="carousel-slide" data-project="gijoe">
+      <img src="img/gijoe_2.jpg" alt="G.I. Joe: The Rise of Cobra">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
+        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
+        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="carousel-slide" data-project="gow-gos">
+      <img src="img/God_Of_War_Ghost_Of_Sparta_3.jpg" alt="God of War: Ghost of Sparta">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP &middot; 2010</span>
+        <div class="carousel-title">God of War:<br>Ghost of Sparta</div>
+        <div class="carousel-sub">Audio &amp; Technical Design &middot; Ready At Dawn &middot; BAFTA Nominated</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 9 -->
     <div class="carousel-slide" data-project="crayola">
       <img src="img/crayola.jpg" alt="Crayola Easy Animator">
       <div class="carousel-overlay"></div>
@@ -274,12 +364,98 @@
         <span class="carousel-cta">View project details</span>
       </div>
     </div>
+
+    <!-- Slide 10 -->
+    <div class="carousel-slide" data-project="gijoe">
+      <img src="img/gijoe_3.jpg" alt="G.I. Joe: The Rise of Cobra">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
+        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
+        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 11 -->
+    <div class="carousel-slide" data-project="gow-origins">
+      <img src="img/gow-origins.jpg" alt="God of War: Origins Collection">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PS3 &middot; 2011</span>
+        <div class="carousel-title">God of War:<br>Origins Collection</div>
+        <div class="carousel-sub">Audio Porting &middot; Ready At Dawn &middot; PSP &rarr; PS3 HD Remaster</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 12 -->
+    <div class="carousel-slide" data-project="gow-gos">
+      <img src="img/God_Of_War_Ghost_Of_Sparta_4.jpg" alt="God of War: Ghost of Sparta">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP &middot; 2010</span>
+        <div class="carousel-title">God of War:<br>Ghost of Sparta</div>
+        <div class="carousel-sub">Audio &amp; Technical Design &middot; Ready At Dawn &middot; BAFTA Nominated</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 13 -->
+    <div class="carousel-slide" data-project="gijoe">
+      <img src="img/gijoe_4.jpg" alt="G.I. Joe: The Rise of Cobra">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
+        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
+        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 14 -->
+    <div class="carousel-slide" data-project="alexandria">
+      <img src="img/alexandria_2.jpg" alt="Lost Treasures of Alexandria">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PC &middot; 2008</span>
+        <div class="carousel-title">Lost Treasures<br>of Alexandria</div>
+        <div class="carousel-sub">Programmer &middot; Stratogon Entertainment &middot; First shipped title</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 15 -->
+    <div class="carousel-slide" data-project="gijoe">
+      <img src="img/gijoe_5.jpg" alt="G.I. Joe: The Rise of Cobra">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
+        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
+        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
   </div>
   <!-- CAROUSEL DOTS — add one per slide, incrementing data-idx -->
   <div class="carousel-nav">
     <button class="carousel-dot active" data-idx="0"></button>
     <button class="carousel-dot" data-idx="1"></button>
     <button class="carousel-dot" data-idx="2"></button>
+    <button class="carousel-dot" data-idx="3"></button>
+    <button class="carousel-dot" data-idx="4"></button>
+    <button class="carousel-dot" data-idx="5"></button>
+    <button class="carousel-dot" data-idx="6"></button>
+    <button class="carousel-dot" data-idx="7"></button>
+    <button class="carousel-dot" data-idx="8"></button>
+    <button class="carousel-dot" data-idx="9"></button>
+    <button class="carousel-dot" data-idx="10"></button>
+    <button class="carousel-dot" data-idx="11"></button>
+    <button class="carousel-dot" data-idx="12"></button>
+    <button class="carousel-dot" data-idx="13"></button>
+    <button class="carousel-dot" data-idx="14"></button>
+    <button class="carousel-dot" data-idx="15"></button>
   </div>
 </div>
 
@@ -590,7 +766,7 @@ const projects = {
     body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Crayola Easy Animator is a consumer AR product — a retail-boxed app and physical mannequin peripheral letting children create animated videos using AR and stop-motion techniques. Shipped 2015, sold at major retailers for $24.99.</p></div>
     <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Awards</div><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Best of Toy Fair 2015 — Popular Science</span></div><br><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Best of Toy Fair 2015 — Techlicious</span></div></div>
     <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Led development of the real-time AR application powering the product</li><li>Built using C# and Unity with DAQRI's proprietary 4D AR technology</li><li>Developed "Smooth Action Technology" — the interpolation system filling in animation frames between mannequin poses</li><li>Managed team members, conducted code reviews, and supported technical planning</li><li>Submitted to Google Play Store and Apple App Store; managed CI with Jenkins</li><li>Coordinated across production, QA, build, art, and engineering teams to hit release schedule</li></ul></div>
-    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Product Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/ipcvMiBylVI" title="Crayola Easy Animator Demo" allowfullscreen loading="lazy"></iframe></div></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Product Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/wkTSCN-zihI" title="Crayola Easy Animator Demo" allowfullscreen loading="lazy"></iframe></div></div>
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C#</span><span class="modal-tech">Unity</span><span class="modal-tech">Jenkins</span><span class="modal-tech">DAQRI 4D AR</span><span class="modal-tech">iOS</span><span class="modal-tech">Android</span></div></div>
     <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://www.amazon.com/DAQRI-Crayola-Easy-Animator/dp/B0186QCB7Y" target="_blank" rel="noopener">Amazon listing &#8599;</a></div></div>`
   },
