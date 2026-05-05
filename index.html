@@ -227,8 +227,25 @@
   <button class="carousel-arrow prev" id="carouselPrev">&#8592;</button>
   <button class="carousel-arrow next" id="carouselNext">&#8594;</button>
   <div class="carousel-track" id="carouselTrack">
+    <!--
+    ========================================================
+    CAROUSEL SLIDES
+    ========================================================
+    To add a new slide:
+      1. Copy one of the blocks below (from <div class="carousel-slide"> to its closing </div>)
+      2. Set data-project="your-project-id" — this MUST match the id used in:
+           a) The project card below: <div class="proj-card" data-project="your-project-id">
+           b) The modal data object in the JS section: 'your-project-id': { ... }
+      3. Replace the img src with your image path e.g. src="img/yourimage.jpg"
+         (put image files in an /img folder next to index.html in your repo)
+      4. Update the badge text, title, subtitle, and cta text
+      5. Add a matching dot button in the carousel-nav div below:
+           <button class="carousel-dot" data-idx="3"></button>
+         (increment the data-idx by 1 for each new slide)
+    ========================================================
+    -->
     <div class="carousel-slide" data-project="gow-gos">
-      <img src="https://img.youtube.com/vi/nMlJtsf9iB8/hqdefault.jpg" alt="God of War: Ghost of Sparta">
+      <img src="img/gow-gos.jpg" alt="God of War: Ghost of Sparta">
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
         <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP &middot; 2010</span>
@@ -238,7 +255,7 @@
       </div>
     </div>
     <div class="carousel-slide" data-project="gow-origins">
-      <img src="https://img.youtube.com/vi/nMlJtsf9iB8/hqdefault.jpg" alt="God of War: Origins Collection">
+      <img src="img/gow-origins.jpg" alt="God of War: Origins Collection">
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
         <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PS3 &middot; 2011</span>
@@ -248,7 +265,7 @@
       </div>
     </div>
     <div class="carousel-slide" data-project="crayola">
-      <img src="https://img.youtube.com/vi/ipcvMiBylVI/hqdefault.jpg" alt="Crayola Easy Animator">
+      <img src="img/crayola.jpg" alt="Crayola Easy Animator">
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
         <span class="carousel-badge badge-ar">&#9733; Award Winner &middot; AR &middot; 2015</span>
@@ -258,6 +275,7 @@
       </div>
     </div>
   </div>
+  <!-- CAROUSEL DOTS — add one per slide, incrementing data-idx -->
   <div class="carousel-nav">
     <button class="carousel-dot active" data-idx="0"></button>
     <button class="carousel-dot" data-idx="1"></button>
@@ -319,6 +337,21 @@
       <button class="filter-btn" data-filter="music">Music tech</button>
       <button class="filter-btn" data-filter="personal">Personal</button>
     </div>
+    <!--
+    ========================================================
+    PROJECT CARDS
+    ========================================================
+    Each card needs:
+      - data-cat="shipped|software|music|tools|personal"  (controls filter tabs)
+      - data-project="your-project-id"  (must match carousel data-project and JS modal key)
+    Clicking a card opens its modal. The "View details" link at the bottom
+    is purely visual — the whole card is clickable.
+
+    To add a new card: copy an existing block, update data-cat, data-project,
+    and all the text/tech inside. Then add the matching entry to the JS
+    projects object below.
+    ========================================================
+    -->
     <div class="projects-grid" id="projects-grid">
 
       <div class="proj-card cat-shipped" data-cat="shipped" data-project="gow-gos">
@@ -478,6 +511,28 @@
 </div>
 
 <script>
+/*
+  ========================================================
+  MODAL DATA
+  ========================================================
+  Each key here is a project-id that must match:
+    - data-project on the carousel slide (if it has one)
+    - data-project on the project card
+
+  To add a new project modal:
+    1. Add a new entry below following the same pattern
+    2. 'tags'  — the coloured pill(s) shown in the modal header
+    3. 'title' — full project name
+    4. 'role'  — your role and studio
+    5. 'body'  — HTML string for the modal content. Use these building blocks:
+         Overview section:     <div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">...</p></div>
+         Bullet points:        <ul class="modal-bullets"><li>...</li></ul>
+         Award badge:          <div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">...</span></div>
+         YouTube embed:        <div class="modal-video"><iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen loading="lazy"></iframe></div>
+         Tech stack:           <div class="modal-tech-row"><span class="modal-tech">C++</span>...</div>
+         External link:        <a class="modal-link" href="..." target="_blank">Link text &#8599;</a>
+  ========================================================
+*/
 const projects = {
   'gow-gos': {
     tags: ['<span class="proj-tag tag-shipped">Shipped &middot; PSP</span>'],
