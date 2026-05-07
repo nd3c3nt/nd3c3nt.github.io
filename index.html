@@ -182,6 +182,10 @@
   .modal-video iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
   .hidden { display:none !important; }
 
+  .modal-images { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; margin-bottom:.75rem; scrollbar-width:thin; scrollbar-color:var(--border) transparent; }
+  .modal-images img { height:150px; width:auto; object-fit:cover; border:1px solid var(--border); flex-shrink:0; border-radius:1px; cursor:zoom-in; transition:opacity .15s; }
+  .modal-images img:hover { opacity:.85; }
+
   @media (max-width:768px) {
     nav { padding:0 1.25rem; } .nav-links { gap:1.2rem; }
     section { padding:4rem 1.25rem; } #hero { padding:7rem 1.25rem 3rem; }
@@ -260,54 +264,6 @@
 
     <!-- Slide 1 -->
     <div class="carousel-slide" data-project="gijoe">
-      <img src="img/gijoe_1.jpg" alt="G.I. Joe: The Rise of Cobra">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
-        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
-        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="carousel-slide" data-project="gow-gos">
-      <img src="img/God_Of_War_Ghost_Of_Sparta_1.jpg" alt="God of War: Ghost of Sparta">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP &middot; 2010</span>
-        <div class="carousel-title">God of War:<br>Ghost of Sparta</div>
-        <div class="carousel-sub">Audio &amp; Technical Design &middot; Ready At Dawn &middot; BAFTA Nominated</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="carousel-slide" data-project="alexandria">
-      <img src="img/alexandria_1.jpg" alt="Lost Treasures of Alexandria">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PC &middot; 2008</span>
-        <div class="carousel-title">Lost Treasures<br>of Alexandria</div>
-        <div class="carousel-sub">Programmer &middot; Stratogon Entertainment &middot; First shipped title</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 4 -->
-    <div class="carousel-slide" data-project="gow-origins">
-      <img src="img/God_Of_War_Ghost_Of_Sparta_2.jpg" alt="God of War: Origins Collection">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PS3 &middot; 2011</span>
-        <div class="carousel-title">God of War:<br>Origins Collection</div>
-        <div class="carousel-sub">Audio Porting &middot; Ready At Dawn &middot; PSP &rarr; PS3 HD Remaster</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 5 -->
-    <div class="carousel-slide" data-project="gijoe">
       <img src="img/gi-joe.jpg" alt="G.I. Joe: The Rise of Cobra">
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
@@ -318,67 +274,7 @@
       </div>
     </div>
 
-    <!-- Slide 6 -->
-    <div class="carousel-slide" data-project="envisics">
-      <img src="img/envisics.jpg" alt="Envisics AR HUD">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-ar">&#9670; AR / Real-Time &middot; 2017&ndash;Present</span>
-        <div class="carousel-title">Envisics<br>AR HUD Tools</div>
-        <div class="carousel-sub">Senior Software Engineer &middot; Holographic Automotive HUD &middot; 2 Patents</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 7 -->
-    <div class="carousel-slide" data-project="gijoe">
-      <img src="img/gijoe_2.jpg" alt="G.I. Joe: The Rise of Cobra">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
-        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
-        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 8 -->
-    <div class="carousel-slide" data-project="gow-gos">
-      <img src="img/God_Of_War_Ghost_Of_Sparta_3.jpg" alt="God of War: Ghost of Sparta">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP &middot; 2010</span>
-        <div class="carousel-title">God of War:<br>Ghost of Sparta</div>
-        <div class="carousel-sub">Audio &amp; Technical Design &middot; Ready At Dawn &middot; BAFTA Nominated</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 9 -->
-    <div class="carousel-slide" data-project="crayola">
-      <img src="img/crayola.jpg" alt="Crayola Easy Animator">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-ar">&#9733; Award Winner &middot; AR &middot; 2015</span>
-        <div class="carousel-title">Crayola<br>Easy Animator</div>
-        <div class="carousel-sub">Custom Application Lead &middot; DAQRI &middot; Best of Toy Fair 2015</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 10 -->
-    <div class="carousel-slide" data-project="gijoe">
-      <img src="img/gijoe_3.jpg" alt="G.I. Joe: The Rise of Cobra">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
-        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
-        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 11 -->
+    <!-- Slide 2 -->
     <div class="carousel-slide" data-project="gow-origins">
       <img src="img/gow-origins.jpg" alt="God of War: Origins Collection">
       <div class="carousel-overlay"></div>
@@ -390,50 +286,38 @@
       </div>
     </div>
 
-    <!-- Slide 12 -->
-    <div class="carousel-slide" data-project="gow-gos">
-      <img src="img/God_Of_War_Ghost_Of_Sparta_4.jpg" alt="God of War: Ghost of Sparta">
+    <!-- Slide 3 -->
+    <div class="carousel-slide" data-project="envisics">
+      <img src="img/envisics.jpg" alt="Envisics AR HUD">
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP &middot; 2010</span>
-        <div class="carousel-title">God of War:<br>Ghost of Sparta</div>
-        <div class="carousel-sub">Audio &amp; Technical Design &middot; Ready At Dawn &middot; BAFTA Nominated</div>
+        <span class="carousel-badge badge-ar">&#9670; AR / Real-Time &middot; 2017&ndash;Present</span>
+        <div class="carousel-title">Envisics<br>AR HUD Tools</div>
+        <div class="carousel-sub">Senior Software Engineer &middot; Holographic Automotive HUD &middot; 2 Patents</div>
         <span class="carousel-cta">View project details</span>
       </div>
     </div>
 
-    <!-- Slide 13 -->
-    <div class="carousel-slide" data-project="gijoe">
-      <img src="img/gijoe_4.jpg" alt="G.I. Joe: The Rise of Cobra">
+    <!-- Slide 4 -->
+    <div class="carousel-slide" data-project="crayola">
+      <img src="img/crayola.jpg" alt="Crayola Easy Animator">
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
-        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
-        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
+        <span class="carousel-badge badge-ar">&#9733; Award Winner &middot; AR &middot; 2015</span>
+        <div class="carousel-title">Crayola<br>Easy Animator</div>
+        <div class="carousel-sub">Custom Application Lead &middot; DAQRI &middot; Best of Toy Fair 2015</div>
         <span class="carousel-cta">View project details</span>
       </div>
     </div>
 
-    <!-- Slide 14 -->
+    <!-- Slide 5 -->
     <div class="carousel-slide" data-project="alexandria">
-      <img src="img/alexandria_2.jpg" alt="Lost Treasures of Alexandria">
+      <img src="img/alexandria_1.jpg" alt="Lost Treasures of Alexandria">
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
         <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PC &middot; 2008</span>
         <div class="carousel-title">Lost Treasures<br>of Alexandria</div>
         <div class="carousel-sub">Programmer &middot; Stratogon Entertainment &middot; First shipped title</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 15 -->
-    <div class="carousel-slide" data-project="gijoe">
-      <img src="img/gijoe_5.jpg" alt="G.I. Joe: The Rise of Cobra">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; Multi-platform &middot; 2009</span>
-        <div class="carousel-title">G.I. Joe:<br>The Rise of Cobra</div>
-        <div class="carousel-sub">Gameplay Programmer &middot; Double Helix Games &middot; Published by EA</div>
         <span class="carousel-cta">View project details</span>
       </div>
     </div>
@@ -447,16 +331,6 @@
     <button class="carousel-dot" data-idx="3"></button>
     <button class="carousel-dot" data-idx="4"></button>
     <button class="carousel-dot" data-idx="5"></button>
-    <button class="carousel-dot" data-idx="6"></button>
-    <button class="carousel-dot" data-idx="7"></button>
-    <button class="carousel-dot" data-idx="8"></button>
-    <button class="carousel-dot" data-idx="9"></button>
-    <button class="carousel-dot" data-idx="10"></button>
-    <button class="carousel-dot" data-idx="11"></button>
-    <button class="carousel-dot" data-idx="12"></button>
-    <button class="carousel-dot" data-idx="13"></button>
-    <button class="carousel-dot" data-idx="14"></button>
-    <button class="carousel-dot" data-idx="15"></button>
   </div>
 </div>
 
@@ -718,6 +592,7 @@ const projects = {
     title: 'God of War: Ghost of Sparta',
     role: 'Designer / Technical Designer / Audio Implementer &middot; Ready At Dawn Studios',
     body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">God of War: Ghost of Sparta is a 2010 action-adventure developed by Ready At Dawn and published by Sony for PSP. It sold nearly 3.2 million copies worldwide. My role was a hybrid of audio implementation, level scripting, and tools programming.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/gow-gos.jpg" alt="God of War: Ghost of Sparta"><img src="img/God_Of_War_Ghost_Of_Sparta_1.jpg" alt=""><img src="img/God_Of_War_Ghost_Of_Sparta_3.jpg" alt=""><img src="img/God_Of_War_Ghost_Of_Sparta_4.jpg" alt=""></div></div>
     <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Awards</div><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">BAFTA Nominated — Handheld (2011 BAFTA Video Game Awards)</span></div><br><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Winner — Best Handheld Game (2010 Spike Video Game Awards)</span></div></div>
     <div class="modal-section"><div class="modal-section-title">Audio Implementation</div><ul class="modal-bullets"><li>Implemented the full in-game audio pipeline — dialogue, music, SFX, and runtime audio behaviours</li><li>Worked directly with sound designers at Sony Santa Monica Studio throughout production</li><li>Used Sony's proprietary SCREAM audio tooling to integrate and manage soundbanks on PSP hardware</li><li>Communicated daily with off-site SCEA audio and music departments</li><li>Imported, catalogued, and managed audio asset deliverables</li><li>Supported the localisation team for multilingual audio content</li></ul></div>
     <div class="modal-section"><div class="modal-section-title">Tools & Technical Design</div><ul class="modal-bullets"><li>Maintained C#/WPF portions of Ready At Dawn's proprietary engine toolset</li><li>Implemented video playback within the proprietary engine</li><li>Created MEL scripts to convert MVN motion-capture animation files into the engine's proprietary format</li><li>Scripted level events, interactions, cutscenes, and custom gameplay scenarios</li><li>Collaborated with programmers to identify, reproduce, and fix gameplay bugs</li></ul></div>
@@ -730,6 +605,7 @@ const projects = {
     title: 'God of War: Origins Collection',
     role: 'Audio Porting Engineer &middot; Ready At Dawn Studios',
     body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">The God of War: Origins Collection is a 2011 HD remaster compilation for PS3, featuring both Chains of Olympus and Ghost of Sparta — ported from PSP by Ready At Dawn. The collection brought 1080p, stereoscopic 3D, 60fps, and DualShock 3 support.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/gow-origins.jpg" alt="God of War: Origins Collection"><img src="img/God_Of_War_Ghost_Of_Sparta_2.jpg" alt=""></div></div>
     <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Ported Ready At Dawn's complete in-house audio implementation from PSP to PS3</li><li>Migrated the full soundbank library ensuring correct playback and behaviour on PS3 hardware</li><li>Addressed platform-specific memory and performance constraints in the PS3 audio subsystem</li><li>Managed asset conversion pipelines and runtime integration differences between platforms</li><li>Supported release-readiness across both platforms simultaneously</li></ul></div>
     <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Trailer</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/nMlJtsf9iB8" title="God of War Origins Collection Trailer" allowfullscreen loading="lazy"></iframe></div></div>
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">PS3 SDK</span><span class="modal-tech">Audio porting</span><span class="modal-tech">Asset pipelines</span><span class="modal-tech">Soundbanks</span></div></div>
@@ -740,6 +616,7 @@ const projects = {
     title: 'G.I. Joe: The Rise of Cobra',
     role: 'Gameplay Programmer &middot; Double Helix Games &middot; Published by EA &middot; 2009',
     body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">G.I. Joe: The Rise of Cobra is a 2009 third-person action game published by EA, based on the Paramount Pictures film. Shipped across Xbox 360, PS3, PS2, PSP, and Wii. My first AAA title — a significant step up in production scale and platform scope.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/gi-joe.jpg" alt="G.I. Joe: The Rise of Cobra"><img src="img/gijoe_1.jpg" alt=""><img src="img/gijoe_2.jpg" alt=""><img src="img/gijoe_3.jpg" alt=""><img src="img/gijoe_4.jpg" alt=""><img src="img/gijoe_5.jpg" alt=""></div></div>
     <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Created new weapon and projectile types and expanded existing projectile systems across all platforms</li><li>Provided designers with flexible data-driven tools to tune and balance weapon and projectile attributes</li><li>Worked closely with VFX artists to add engine functionality and debug particle-related issues</li><li>Built a system to parse subtitle text from Excel sheets and integrated it into the existing movie player</li><li>Served as lead programmer on a month-long E3 pitch demo — sole programmer on the deliverable</li><li>Supported production across Xbox 360, PS3, PS2, PSP, and Wii simultaneously</li></ul></div>
     <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Gameplay Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/B0m1SSd1LOo" title="GI Joe Rise of Cobra Gameplay" allowfullscreen loading="lazy"></iframe></div></div>
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">Xbox 360</span><span class="modal-tech">PS3</span><span class="modal-tech">PSP</span><span class="modal-tech">Wii</span><span class="modal-tech">Gameplay systems</span><span class="modal-tech">Projectile physics</span><span class="modal-tech">VFX integration</span></div></div>
@@ -759,6 +636,7 @@ const projects = {
     title: 'AR HUD Development Tools — Envisics',
     role: 'Senior Software Engineer &middot; Envisics &middot; Dec 2017–Present',
     body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Envisics develops next-generation holographic AR HUD technology for automotive applications. As a senior software engineer I've been central to the real-time tooling, hardware integration, and R&D systems underpinning their engineering workflows — with two granted patents arising from this work.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/envisics.jpg" alt="Envisics AR HUD"><img src="img/envisics1.jpg" alt=""><img src="img/envisics2.jpg" alt=""></div></div>
     <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Developed and maintained large C++/Qt applications to drive, calibrate, test, and optimise prototype holographic HUD systems</li><li>Created OpenGL-based rendering systems for 2D/3D content and real-time AR HUD visualisation</li><li>Built Unity/C# workflows for AR content, point-cloud/mesh data, demos, and technical validation</li><li>Integrated hardware in test vehicles and lab environments — eye-tracking, LiDAR, RealSense, MCUs, FPGAs, HDMI, NDI</li><li>Developed methods to convert open-source GPS/map data into 3D ADAS-style driver information displays</li><li>Supported high-profile investor and client demonstrations requiring stable runtime behaviour and rapid iteration</li><li>Improved CMake build configuration, dependency management, installer workflows, and Jenkins build stability</li><li>Provided technical guidance across UI, build systems, hardware integration, and application architecture</li><li>Named inventor on two granted GB patents (also filed internationally)</li></ul></div>
     <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Company Overview</div><div class="modal-video"><video controls playsinline style="width:100%;display:block"><source src="https://envisics.com/wp-content/uploads/2024/11/j952_envisics_3d_animation_corp_overview_v20a-1080p.mp4" type="video/mp4">Your browser does not support video playback.</video></div></div>
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">C++17/20</span><span class="modal-tech">Qt6</span><span class="modal-tech">OpenGL</span><span class="modal-tech">OpenCV</span><span class="modal-tech">Unity/C#</span><span class="modal-tech">CMake</span><span class="modal-tech">vcpkg</span><span class="modal-tech">Python</span><span class="modal-tech">Boost</span><span class="modal-tech">LiDAR</span><span class="modal-tech">Eye-tracking</span></div></div>`
@@ -779,6 +657,7 @@ const projects = {
     title: 'Lost Treasures of Alexandria',
     role: 'Programmer &middot; Stratogon Entertainment &middot; 2007–2008',
     body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Lost Treasures of Alexandria is a match-3 puzzle adventure published by Big Fish Games (April 2008). My first shipped commercial title — and where I established the audio engineering foundations I carried through my entire games career. PC release only; a later DS port was handled by a separate team.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/alexandria_1.jpg" alt="Lost Treasures of Alexandria"><img src="img/alexandria_2.jpg" alt=""></div></div>
     <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Led a 10-person team developing a game engine using XNA</li><li>Implemented the game's audio system from scratch using OpenAL and FMOD</li><li>Integrated FFMPEG for full-motion video cutscene playback</li><li>Developed and implemented pixel and vertex shaders using HLSL</li><li>Designed and created audio content for the game</li><li>Set up and maintained Tortoise SVN source control</li><li>Researched and evaluated new technology for production use</li></ul></div>
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">C#</span><span class="modal-tech">XNA</span><span class="modal-tech">OpenAL</span><span class="modal-tech">FMOD</span><span class="modal-tech">FFMPEG</span><span class="modal-tech">HLSL</span><span class="modal-tech">SVN</span><span class="modal-tech">Windows</span></div></div>
     <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://www.bigfishgames.com/the-lost-treasures-of-alexandria-f2423t1l1.html" target="_blank" rel="noopener">Big Fish Games &#8599;</a><a class="modal-link" href="https://gamefaqs.gamespot.com/pc/267902-the-lost-treasures-of-alexandria/data" target="_blank" rel="noopener">GameFAQs &#8599;</a></div></div>`
@@ -818,8 +697,21 @@ document.querySelectorAll('.proj-card[data-project]').forEach(card => {
   card.addEventListener('click', e => { if (e.target.tagName === 'A') return; openModal(card.dataset.project); });
 });
 
+// ── PROJECT IMAGE SEQUENCES ──
+// Each array is the ordered list of images for that project's carousel slide.
+// imageCounters tracks how many half-ticks have been consumed; advances by 2 per visit.
+const projectImages = {
+  'gow-gos':     ['img/gow-gos.jpg','img/God_Of_War_Ghost_Of_Sparta_1.jpg','img/God_Of_War_Ghost_Of_Sparta_3.jpg','img/God_Of_War_Ghost_Of_Sparta_4.jpg'],
+  'gijoe':       ['img/gi-joe.jpg','img/gijoe_1.jpg','img/gijoe_2.jpg','img/gijoe_3.jpg','img/gijoe_4.jpg','img/gijoe_5.jpg'],
+  'gow-origins': ['img/gow-origins.jpg','img/God_Of_War_Ghost_Of_Sparta_2.jpg'],
+  'envisics':    ['img/envisics.jpg','img/envisics1.jpg','img/envisics2.jpg'],
+  'crayola':     ['img/crayola.jpg'],
+  'alexandria':  ['img/alexandria_1.jpg','img/alexandria_2.jpg'],
+};
+const imageCounters = {};
+Object.keys(projectImages).forEach(k => imageCounters[k] = 0);
+
 // ── CAROUSEL BLURRED BACKGROUNDS ──
-// Auto-generates a blurred version of each slide image as the background fill
 document.querySelectorAll('.carousel-slide').forEach(slide => {
   const img = slide.querySelector('img');
   const bg = document.createElement('div');
@@ -832,12 +724,48 @@ document.querySelectorAll('.carousel-slide').forEach(slide => {
 const track = document.getElementById('carouselTrack');
 const dots = document.querySelectorAll('.carousel-dot');
 const slides = document.querySelectorAll('.carousel-slide');
-let current = 0, autoTimer;
+let current = 0, autoTimer, midSwapTimer = null;
+
+function swapSlideImage(slideEl, src) {
+  const img = slideEl.querySelector('img');
+  const bg = slideEl.querySelector('.slide-bg');
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = src;
+    if (bg) bg.style.backgroundImage = `url('${src}')`;
+    img.style.opacity = '';
+  }, 300);
+}
+
+function activateSlide(idx) {
+  const slide = slides[idx];
+  const pid = slide.dataset.project;
+  const images = projectImages[pid];
+  if (!images || images.length === 0) return;
+  const counter = imageCounters[pid];
+  const startSrc = images[counter % images.length];
+  const img = slide.querySelector('img');
+  const bg = slide.querySelector('.slide-bg');
+  img.src = startSrc;
+  if (bg) bg.style.backgroundImage = `url('${startSrc}')`;
+  if (images.length > 1) {
+    midSwapTimer = setTimeout(() => {
+      midSwapTimer = null;
+      swapSlideImage(slide, images[(counter + 1) % images.length]);
+    }, 4500 / 2);
+  }
+}
+
 function goTo(idx) {
+  clearTimeout(midSwapTimer); midSwapTimer = null;
+  const oldPid = slides[current].dataset.project;
+  if (projectImages[oldPid]) imageCounters[oldPid] += 2;
   current = (idx + slides.length) % slides.length;
   track.style.transform = `translateX(-${current * 100}%)`;
   dots.forEach((d,i) => d.classList.toggle('active', i === current));
+  activateSlide(current);
 }
+
 function startAuto() { clearInterval(autoTimer); autoTimer = setInterval(() => goTo(current + 1), 4500); }
 function stopAuto() { clearInterval(autoTimer); }
 document.getElementById('carouselPrev').addEventListener('click', () => { stopAuto(); goTo(current-1); startAuto(); });
@@ -860,6 +788,7 @@ slides.forEach(slide => {
     }, 600);
   });
 });
+activateSlide(0);
 startAuto();
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
