@@ -755,15 +755,23 @@ function activateSlide(idx) {
   }
 }
 
+function slideWidth() { return document.getElementById('carousel-section').offsetWidth; }
+
 function goTo(idx) {
   clearTimeout(midSwapTimer); midSwapTimer = null;
   const oldPid = slides[current].dataset.project;
   if (projectImages[oldPid]) imageCounters[oldPid] += 2;
   current = (idx + slides.length) % slides.length;
-  track.style.transform = `translateX(-${current * 100}%)`;
+  track.style.transform = `translateX(-${current * slideWidth()}px)`;
   dots.forEach((d,i) => d.classList.toggle('active', i === current));
   activateSlide(current);
 }
+
+window.addEventListener('resize', () => {
+  track.style.transition = 'none';
+  track.style.transform = `translateX(-${current * slideWidth()}px)`;
+  requestAnimationFrame(() => { track.style.transition = ''; });
+});
 
 function startAuto() { clearInterval(autoTimer); autoTimer = setInterval(() => goTo(current + 1), 4500); }
 function stopAuto() { clearInterval(autoTimer); }
