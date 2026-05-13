@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\gavin\\\\Desktop\" -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in @\\(\".pdf\",\".docx\",\".doc\",\".txt\"\\) } | Select-Object FullName | Select-Object -First 30)",
+      "Bash(git commit *)"
+    ]
+  }
+}
