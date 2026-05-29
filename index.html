@@ -316,7 +316,7 @@
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
         <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; iOS &amp; Android &middot; 2013&ndash;2015</span>
-        <div class="carousel-title">Zya /<br>Music Mastermind</div>
+        <div class="carousel-title">Zya Music</div>
         <div class="carousel-sub">Senior Software Engineer &middot; Music-Driven Apps &middot; iOS &amp; Android</div>
         <span class="carousel-cta">View project details</span>
       </div>
@@ -735,6 +735,12 @@ const dots = document.querySelectorAll('.carousel-dot');
 const slides = document.querySelectorAll('.carousel-slide');
 let current = 0, autoTimer, midSwapTimer = null;
 
+// Set explicit pixel widths immediately so percentages never misfire on mobile
+(function initSlideWidths() {
+  const w = document.getElementById('carousel-section').offsetWidth;
+  slides.forEach(s => { s.style.width = w + 'px'; });
+})();
+
 function swapSlideImage(slideEl, src) {
   const img = slideEl.querySelector('img');
   const bg = slideEl.querySelector('.slide-bg');
@@ -767,6 +773,11 @@ function activateSlide(idx) {
 
 function slideWidth() { return document.getElementById('carousel-section').offsetWidth; }
 
+function setSlideWidths() {
+  const w = slideWidth();
+  slides.forEach(s => { s.style.width = w + 'px'; });
+}
+
 function goTo(idx) {
   clearTimeout(midSwapTimer); midSwapTimer = null;
   const oldPid = slides[current].dataset.project;
@@ -779,6 +790,7 @@ function goTo(idx) {
 
 window.addEventListener('resize', () => {
   track.style.transition = 'none';
+  setSlideWidths();
   track.style.transform = `translateX(-${current * slideWidth()}px)`;
   requestAnimationFrame(() => { track.style.transition = ''; });
 });
@@ -815,6 +827,7 @@ Promise.allSettled(
       })
   )
 ).then(() => {
+  setSlideWidths();
   activateSlide(0);
   startAuto();
 });
