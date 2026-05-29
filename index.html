@@ -26,7 +26,7 @@
   .nav-links a { font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--text-lo); text-decoration:none; transition:color .15s; }
   .nav-links a:hover { color:var(--amber); }
 
-  #hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:8rem 2.5rem 4rem; position:relative; overflow:hidden; }
+  #hero { display:flex; flex-direction:column; padding:4rem 2.5rem; position:relative; overflow:hidden; }
   .hero-grid-bg { position:absolute; inset:0; background-image:linear-gradient(rgba(201,125,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,125,42,.03) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 30%,transparent 100%); }
   .hero-inner { position:relative; max-width:900px; }
   .hero-eyebrow { font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:.25em; text-transform:uppercase; margin-bottom:1rem; }
@@ -187,7 +187,7 @@
 
   @media (max-width:768px) {
     nav { padding:0 1.25rem; } .nav-links { gap:1.2rem; }
-    section { padding:4rem 1.25rem; } #hero { padding:7rem 1.25rem 3rem; }
+    section { padding:4rem 1.25rem; } #hero { padding:3rem 1.25rem; }
     .about-grid,.contact-grid { grid-template-columns:1fr; }
     .hero-scroll { left:1.25rem; } footer { padding:1.5rem 1.25rem; }
     #carousel-section { height:340px; }
@@ -208,6 +208,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
 
 <section id="hero">
   <div class="hero-grid-bg"></div>
@@ -254,8 +255,8 @@
       <img src="img/projects/gow-gos/gow1.jpg" alt="God of War: Ghost of Sparta">
       <div class="carousel-overlay"></div>
       <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP &middot; 2010</span>
-        <div class="carousel-title">God of War:<br>Ghost of Sparta</div>
+        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PSP / PS3 &middot; 2010&ndash;11</span>
+        <div class="carousel-title">God of War:<br>PSP Series</div>
         <div class="carousel-sub">Audio &amp; Technical Design &middot; Ready At Dawn &middot; BAFTA Nominated</div>
         <span class="carousel-cta">View project details</span>
       </div>
@@ -274,18 +275,6 @@
     </div>
 
     <!-- Slide 2 -->
-    <div class="carousel-slide" data-project="gow-origins">
-      <img src="img/projects/gow-origins/gow7.jpg" alt="God of War: Origins Collection">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption">
-        <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; PS3 &middot; 2011</span>
-        <div class="carousel-title">God of War:<br>Origins Collection</div>
-        <div class="carousel-sub">Audio Porting &middot; Ready At Dawn &middot; PSP &rarr; PS3 HD Remaster</div>
-        <span class="carousel-cta">View project details</span>
-      </div>
-    </div>
-
-    <!-- Slide 3 -->
     <div class="carousel-slide" data-project="envisics">
       <img src="img/projects/envisics/env.jpg" alt="Envisics AR HUD">
       <div class="carousel-overlay"></div>
@@ -297,7 +286,7 @@
       </div>
     </div>
 
-    <!-- Slide 4 -->
+    <!-- Slide 3 -->
     <div class="carousel-slide" data-project="crayola">
       <img src="img/projects/crayola/cray1.jpg" alt="Crayola Easy Animator">
       <div class="carousel-overlay"></div>
@@ -309,7 +298,7 @@
       </div>
     </div>
 
-    <!-- Slide 5 -->
+    <!-- Slide 4 -->
     <div class="carousel-slide" data-project="alexandria">
       <img src="img/projects/alexandria/lta1.jpg" alt="Lost Treasures of Alexandria">
       <div class="carousel-overlay"></div>
@@ -321,7 +310,7 @@
       </div>
     </div>
 
-    <!-- Slide 6 -->
+    <!-- Slide 5 -->
     <div class="carousel-slide" data-project="zya">
       <img src="img/projects/zya/zya4.png" alt="Zya / Music Mastermind">
       <div class="carousel-overlay"></div>
@@ -329,6 +318,18 @@
         <span class="carousel-badge badge-shipped">&#10003; Shipped &middot; iOS &amp; Android &middot; 2013&ndash;2015</span>
         <div class="carousel-title">Zya /<br>Music Mastermind</div>
         <div class="carousel-sub">Senior Software Engineer &middot; Music-Driven Apps &middot; iOS &amp; Android</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="carousel-slide" data-project="alterra">
+      <img src="img/projects/alterra/Screenshot 2026-05-28 185811.png" alt="Alterra AR Experience">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-ar">&#9670; Unreleased &middot; AR &middot; Smart Glasses &middot; 2016</span>
+        <div class="carousel-title">Alterra</div>
+        <div class="carousel-sub">Custom Application Lead &middot; DAQRI &middot; AR Experience &amp; Companion Comic</div>
         <span class="carousel-cta">View project details</span>
       </div>
     </div>
@@ -345,6 +346,8 @@
     <button class="carousel-dot" data-idx="6"></button>
   </div>
 </div>
+
+
 
 <section id="about">
   <div class="section-inner">
@@ -419,22 +422,12 @@
     <div class="projects-grid" id="projects-grid">
 
       <div class="proj-card cat-shipped" data-cat="shipped" data-project="gow-gos">
-        <span class="proj-year">2010</span>
-        <div class="proj-tag-row"><span class="proj-tag tag-shipped">Shipped &middot; PSP</span></div>
-        <div class="proj-name">God of War: Ghost of Sparta</div>
-        <div class="proj-role">Designer / Audio Implementer &middot; Ready At Dawn</div>
-        <p class="proj-desc">BAFTA nominated. Implemented the full audio pipeline working directly with Sony Santa Monica sound designers. Also scripted level events, maintained engine tools in C#/WPF, and created MEL scripts for mocap pipeline.</p>
-        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">C#/WPF</span><span class="proj-tech">PSP SDK</span><span class="proj-tech">SCREAM</span><span class="proj-tech">MEL</span></div>
-        <div class="proj-more">View details &#8599;</div>
-      </div>
-
-      <div class="proj-card cat-shipped" data-cat="shipped" data-project="gow-origins">
-        <span class="proj-year">2011</span>
-        <div class="proj-tag-row"><span class="proj-tag tag-shipped">Shipped &middot; PS3</span></div>
-        <div class="proj-name">God of War: Origins Collection</div>
-        <div class="proj-role">Audio Porting Engineer &middot; Ready At Dawn</div>
-        <p class="proj-desc">Ported the complete in-house audio implementation and soundbanks from PSP to PS3. Addressed platform-specific memory constraints, asset conversion, runtime integration, and release-readiness.</p>
-        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">PS3 SDK</span><span class="proj-tech">Audio porting</span><span class="proj-tech">Asset pipelines</span></div>
+        <span class="proj-year">2010&ndash;11</span>
+        <div class="proj-tag-row"><span class="proj-tag tag-shipped">Shipped &middot; PSP / PS3</span></div>
+        <div class="proj-name">God of War: PSP Series</div>
+        <div class="proj-role">Designer / Audio Implementer &middot; Audio Porting Engineer &middot; Ready At Dawn</div>
+        <p class="proj-desc">BAFTA nominated. Shipped Ghost of Sparta (PSP, 2010) and the Origins Collection HD remaster (PS3, 2011). Full audio pipeline, level scripting, and engine tools — then ported the complete audio system to PS3.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">C#/WPF</span><span class="proj-tech">PSP SDK</span><span class="proj-tech">PS3 SDK</span><span class="proj-tech">SCREAM</span><span class="proj-tech">MEL</span></div>
         <div class="proj-more">View details &#8599;</div>
       </div>
 
@@ -475,6 +468,16 @@
         <div class="proj-role">Custom Application Lead &middot; DAQRI</div>
         <p class="proj-desc">Led development of a real-time AR animation app for Crayola. Won Best of Toy Fair 2015 (Popular Science & Techlicious). Shipped as a boxed retail product with AR mannequin peripheral on iOS and Android.</p>
         <div class="proj-tech-row"><span class="proj-tech">C#</span><span class="proj-tech">Unity</span><span class="proj-tech">Jenkins</span><span class="proj-tech">AR</span><span class="proj-tech">iOS/Android</span></div>
+        <div class="proj-more">View details &#8599;</div>
+      </div>
+
+      <div class="proj-card cat-software" data-cat="software" data-project="alterra">
+        <span class="proj-year">2016</span>
+        <div class="proj-tag-row"><span class="proj-tag tag-software">Unreleased &middot; AR / Smart Glasses</span></div>
+        <div class="proj-name">Alterra</div>
+        <div class="proj-role">Custom Application Lead &middot; DAQRI</div>
+        <p class="proj-desc">Led a team of 8 engineers building an unreleased AR experience for DAQRI Smart Glasses. Companion comic book with AR-target tickets triggered interactive mini-games and narrative content using ARToolkit.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C#</span><span class="proj-tech">Unity</span><span class="proj-tech">ARToolkit</span><span class="proj-tech">DAQRI Smart Glasses</span></div>
         <div class="proj-more">View details &#8599;</div>
       </div>
 
@@ -592,7 +595,7 @@
     5. 'body'  — HTML string for the modal content. Use these building blocks:
          Overview section:     <div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">...</p></div>
          Bullet points:        <ul class="modal-bullets"><li>...</li></ul>
-         Award badge:          <div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">...</span></div>
+         Award badge:          <div class="award-badge"><span class="award-icon">�?�</span><span class="award-text">...</span></div>
          YouTube embed:        <div class="modal-video"><iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen loading="lazy"></iframe></div>
          Tech stack:           <div class="modal-tech-row"><span class="modal-tech">C++</span>...</div>
          External link:        <a class="modal-link" href="..." target="_blank">Link text &#8599;</a>
@@ -600,28 +603,18 @@
 */
 const projects = {
   'gow-gos': {
-    tags: ['<span class="proj-tag tag-shipped">Shipped &middot; PSP</span>'],
-    title: 'God of War: Ghost of Sparta',
-    role: 'Designer / Technical Designer / Audio Implementer &middot; Ready At Dawn Studios',
-    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">God of War: Ghost of Sparta is a 2010 action-adventure developed by Ready At Dawn and published by Sony for PSP. It sold nearly 3.2 million copies worldwide. My role was a hybrid of audio implementation, level scripting, and tools programming.</p></div>
-    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/projects/gow-gos/gow1.jpg" alt="God of War: Ghost of Sparta"><img src="img/projects/gow-gos/gow2.jpg" alt=""><img src="img/projects/gow-gos/gow3.png" alt=""><img src="img/projects/gow-gos/gow4.jpg" alt=""><img src="img/projects/gow-gos/gow5.jpg" alt=""><img src="img/projects/gow-gos/gow6.jpg" alt=""></div></div>
-    <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Awards</div><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">BAFTA Nominated — Handheld (2011 BAFTA Video Game Awards)</span></div><br><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Winner — Best Handheld Game (2010 Spike Video Game Awards)</span></div></div>
-    <div class="modal-section"><div class="modal-section-title">Audio Implementation</div><ul class="modal-bullets"><li>Implemented the full in-game audio pipeline — dialogue, music, SFX, and runtime audio behaviours</li><li>Worked directly with sound designers at Sony Santa Monica Studio throughout production</li><li>Used Sony's proprietary SCREAM audio tooling to integrate and manage soundbanks on PSP hardware</li><li>Communicated daily with off-site SCEA audio and music departments</li><li>Imported, catalogued, and managed audio asset deliverables</li><li>Supported the localisation team for multilingual audio content</li></ul></div>
-    <div class="modal-section"><div class="modal-section-title">Tools & Technical Design</div><ul class="modal-bullets"><li>Maintained C#/WPF portions of Ready At Dawn's proprietary engine toolset</li><li>Implemented video playback within the proprietary engine</li><li>Created MEL scripts to convert MVN motion-capture animation files into the engine's proprietary format</li><li>Scripted level events, interactions, cutscenes, and custom gameplay scenarios</li><li>Collaborated with programmers to identify, reproduce, and fix gameplay bugs</li></ul></div>
+    tags: ['<span class="proj-tag tag-shipped">Shipped &middot; PSP / PS3</span>'],
+    title: 'God of War: PSP Series',
+    role: 'Designer / Technical Designer / Audio Implementer &middot; Audio Porting Engineer &middot; Ready At Dawn Studios',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Two shipped titles at Ready At Dawn: Ghost of Sparta (PSP, 2010) — a BAFTA-nominated action-adventure selling 3.2 million copies — and the Origins Collection (PS3, 2011), an HD remaster of both PSP God of War titles. My role spanned audio implementation and technical design on Ghost of Sparta, then audio porting for the Origins Collection.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/projects/gow-gos/gow1.jpg" alt="God of War: Ghost of Sparta"><img src="img/projects/gow-gos/gow2.jpg" alt=""><img src="img/projects/gow-gos/gow3.png" alt=""><img src="img/projects/gow-gos/gow4.jpg" alt=""><img src="img/projects/gow-gos/gow5.jpg" alt=""><img src="img/projects/gow-gos/gow6.jpg" alt=""><img src="img/projects/gow-origins/gow7.jpg" alt="God of War: Origins Collection"><img src="img/projects/gow-origins/gow8.jpg" alt=""></div></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Awards</div><div class="award-badge"><span class="award-icon">�?�</span><span class="award-text">BAFTA Nominated — Handheld (2011 BAFTA Video Game Awards)</span></div><br><div class="award-badge"><span class="award-icon">�?�</span><span class="award-text">Winner — Best Handheld Game (2010 Spike Video Game Awards)</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Ghost of Sparta &mdash; Audio</div><ul class="modal-bullets"><li>Implemented the full in-game audio pipeline — dialogue, music, SFX, and runtime audio behaviours</li><li>Worked directly with sound designers at Sony Santa Monica Studio throughout production</li><li>Used Sony's proprietary SCREAM audio tooling to integrate and manage soundbanks on PSP hardware</li><li>Communicated daily with off-site SCEA audio and music departments</li><li>Imported, catalogued, and managed audio asset deliverables</li><li>Supported the localisation team for multilingual audio content</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Ghost of Sparta &mdash; Tools &amp; Tech</div><ul class="modal-bullets"><li>Maintained C#/WPF portions of Ready At Dawn's proprietary engine toolset</li><li>Implemented video playback within the proprietary engine</li><li>Created MEL scripts to convert MVN motion-capture animation files into the engine's proprietary format</li><li>Scripted level events, interactions, cutscenes, and custom gameplay scenarios</li><li>Collaborated with programmers to identify, reproduce, and fix gameplay bugs</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Origins Collection &mdash; Audio Porting</div><ul class="modal-bullets"><li>Ported Ready At Dawn's complete in-house audio implementation from PSP to PS3</li><li>Migrated the full soundbank library ensuring correct playback and behaviour on PS3 hardware</li><li>Addressed platform-specific memory and performance constraints in the PS3 audio subsystem</li><li>Managed asset conversion pipelines and runtime integration differences between platforms</li><li>Supported release-readiness across both platforms simultaneously</li></ul></div>
     <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Gameplay Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/nMlJtsf9iB8" title="God of War Ghost of Sparta Gameplay" allowfullscreen loading="lazy"></iframe></div></div>
-    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">C#/WPF</span><span class="modal-tech">PSP SDK</span><span class="modal-tech">SCREAM</span><span class="modal-tech">Soundbanks</span><span class="modal-tech">MEL</span><span class="modal-tech">Proprietary engine</span><span class="modal-tech">Perforce</span></div></div>
-    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://en.wikipedia.org/wiki/God_of_War:_Ghost_of_Sparta" target="_blank" rel="noopener">Wikipedia &#8599;</a><a class="modal-link" href="https://blog.playstation.com/2010/11/02/god-of-war-ghost-of-sparta-is-now-available-first-reviews-are-in/" target="_blank" rel="noopener">PlayStation Blog &#8599;</a></div></div>`
-  },
-  'gow-origins': {
-    tags: ['<span class="proj-tag tag-shipped">Shipped &middot; PS3</span>'],
-    title: 'God of War: Origins Collection',
-    role: 'Audio Porting Engineer &middot; Ready At Dawn Studios',
-    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">The God of War: Origins Collection is a 2011 HD remaster compilation for PS3, featuring both Chains of Olympus and Ghost of Sparta — ported from PSP by Ready At Dawn. The collection brought 1080p, stereoscopic 3D, 60fps, and DualShock 3 support.</p></div>
-    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/projects/gow-origins/gow7.jpg" alt="God of War: Origins Collection"><img src="img/projects/gow-origins/gow8.jpg" alt=""></div></div>
-    <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Ported Ready At Dawn's complete in-house audio implementation from PSP to PS3</li><li>Migrated the full soundbank library ensuring correct playback and behaviour on PS3 hardware</li><li>Addressed platform-specific memory and performance constraints in the PS3 audio subsystem</li><li>Managed asset conversion pipelines and runtime integration differences between platforms</li><li>Supported release-readiness across both platforms simultaneously</li></ul></div>
-    <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Trailer</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/nMlJtsf9iB8" title="God of War Origins Collection Trailer" allowfullscreen loading="lazy"></iframe></div></div>
-    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">PS3 SDK</span><span class="modal-tech">Audio porting</span><span class="modal-tech">Asset pipelines</span><span class="modal-tech">Soundbanks</span></div></div>
-    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://en.wikipedia.org/wiki/God_of_War:_Origins_Collection" target="_blank" rel="noopener">Wikipedia &#8599;</a></div></div>`
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">C#/WPF</span><span class="modal-tech">PSP SDK</span><span class="modal-tech">PS3 SDK</span><span class="modal-tech">SCREAM</span><span class="modal-tech">Soundbanks</span><span class="modal-tech">MEL</span><span class="modal-tech">Proprietary engine</span><span class="modal-tech">Perforce</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://en.wikipedia.org/wiki/God_of_War:_Ghost_of_Sparta" target="_blank" rel="noopener">Wikipedia &mdash; Ghost of Sparta &#8599;</a><a class="modal-link" href="https://blog.playstation.com/2010/11/02/god-of-war-ghost-of-sparta-is-now-available-first-reviews-are-in/" target="_blank" rel="noopener">PlayStation Blog &#8599;</a><a class="modal-link" href="https://en.wikipedia.org/wiki/God_of_War:_Origins_Collection" target="_blank" rel="noopener">Wikipedia &mdash; Origins Collection &#8599;</a></div></div>`
   },
   'gijoe': {
     tags: ['<span class="proj-tag tag-shipped">Shipped &middot; Multi-platform</span>'],
@@ -660,11 +653,22 @@ const projects = {
     title: 'Crayola Easy Animator',
     role: 'Custom Application Lead &middot; DAQRI &middot; 2015',
     body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Crayola Easy Animator is a consumer AR product — a retail-boxed app and physical mannequin peripheral letting children create animated videos using AR and stop-motion techniques. Shipped 2015, sold at major retailers for $24.99.</p></div>
-    <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Awards</div><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Best of Toy Fair 2015 — Popular Science</span></div><br><div class="award-badge"><span class="award-icon">🏆</span><span class="award-text">Best of Toy Fair 2015 — Techlicious</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/projects/crayola/cray1.jpg" alt="Crayola Easy Animator"><img src="img/projects/crayola/cray2.jpg" alt=""><img src="img/projects/crayola/cray3.jpg" alt=""><img src="img/projects/crayola/91QIMHoUMgL.png" alt=""><img src="img/projects/crayola/91jRX1hx1AL.png" alt=""></div></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Awards</div><div class="award-badge"><span class="award-icon">�?�</span><span class="award-text">Best of Toy Fair 2015 — Popular Science</span></div><br><div class="award-badge"><span class="award-icon">�?�</span><span class="award-text">Best of Toy Fair 2015 — Techlicious</span></div></div>
     <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Led development of the real-time AR application powering the product</li><li>Built using C# and Unity with DAQRI's proprietary 4D AR technology</li><li>Developed "Smooth Action Technology" — the interpolation system filling in animation frames between mannequin poses</li><li>Managed team members, conducted code reviews, and supported technical planning</li><li>Submitted to Google Play Store and Apple App Store; managed CI with Jenkins</li><li>Coordinated across production, QA, build, art, and engineering teams to hit release schedule</li></ul></div>
     <div class="modal-section"><div class="modal-section-title" style="color:var(--green)">Product Video</div><div class="modal-video"><iframe src="https://www.youtube.com/embed/wkTSCN-zihI" title="Crayola Easy Animator Demo" allowfullscreen loading="lazy"></iframe></div></div>
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C#</span><span class="modal-tech">Unity</span><span class="modal-tech">Jenkins</span><span class="modal-tech">DAQRI 4D AR</span><span class="modal-tech">iOS</span><span class="modal-tech">Android</span></div></div>
     <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://www.amazon.com/DAQRI-Crayola-Easy-Animator/dp/B0186QCB7Y" target="_blank" rel="noopener">Amazon listing &#8599;</a></div></div>`
+  },
+  'alterra': {
+    tags: ['<span class="proj-tag tag-software">Unreleased &middot; AR / Smart Glasses</span>'],
+    title: 'Alterra',
+    role: 'Custom Application Lead &middot; DAQRI &middot; 2016',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">Alterra was an unreleased AR experience for the DAQRI Smart Glasses — a sci-fi narrative set in a future space colony, delivered through a companion comic book whose tear-out tickets and postcards doubled as AR targets. Scanning them with the Smart Glasses unlocked four distinct AR experiences within an explorable world. Built on DAQRI's open-source ARToolkit tracking library.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/projects/alterra/Screenshot 2026-05-28 185811.png" alt="Alterra title screen"><img src="img/projects/alterra/PXL_20260528_125048282.jpg" alt="Alterra comic book cover"><img src="img/projects/alterra/PXL_20260528_125141686.jpg" alt="AR ticket targets"><img src="img/projects/alterra/Screenshot 2026-05-28 190012.png" alt="Ticket onboarding screen"><img src="img/projects/alterra/Screenshot 2026-05-28 190057.png" alt="AR experiences hub"><img src="img/projects/alterra/Screenshot 2026-05-28 203409.png" alt="AR gameplay"><img src="img/projects/alterra/PXL_20260528_125115331.jpg" alt="Comic interior — space colony AR target"><img src="img/projects/alterra/PXL_20260528_125125966.jpg" alt="Comic narrative panels"><img src="img/projects/alterra/Screenshot 2026-05-28 185907.png" alt="App menu with colony model"><img src="img/projects/alterra/Screenshot 2026-05-28 185943.png" alt="Animated comic panels in-app"><img src="img/projects/alterra/PXL_20260528_125200426.jpg" alt="ARToolkit branding — back matter"><img src="img/projects/alterra/Screenshot 2026-05-28 203346.png" alt="AR gameplay — game over screen"></div></div>
+    <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Led a dedicated team of 8 engineers, managing day-to-day delivery and technical direction</li><li>Worked exclusively on Alterra alongside Project Managers, Art, Design, and QA throughout the full production cycle</li><li>Responsible for architecture decisions, code reviews, milestone planning, and cross-discipline coordination</li><li>Delivered AR target tracking via ARToolkit — DAQRI's open-source marker tracking library</li><li>Oversaw engineering delivery of four distinct AR experiences within an explorable world, plus the onboarding flow and in-app animated comic panels</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title" style="color:var(--amber)">Concept &amp; Design</div><ul class="modal-bullets"><li>Companion comic book (Vol. 1) served as both narrative and physical interface — tickets and travel postcards inside were the AR targets</li><li>Users tore out perforated tickets and scanned them with Smart Glasses to unlock content and enter the experience</li><li>Scanning different AR targets from the comic book unlocked four distinct AR experiences within the explorable world</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C#</span><span class="modal-tech">Unity</span><span class="modal-tech">ARToolkit</span><span class="modal-tech">DAQRI Smart Glasses</span><span class="modal-tech">DAQRI 4D AR</span><span class="modal-tech">Jenkins</span></div></div>`
   },
   'alexandria': {
     tags: ['<span class="proj-tag tag-shipped">Shipped &middot; PC</span>'],
@@ -801,7 +805,7 @@ slides.forEach(slide => {
   });
 });
 Promise.allSettled(
-  ['gow-gos','gijoe','gow-origins','envisics','crayola','alexandria','zya'].map(id =>
+  ['gow-gos','gijoe','envisics','crayola','alterra','alexandria','zya'].map(id =>
     fetch(`img/projects/${id}/images.json`)
       .then(r => r.json())
       .then(files => {
