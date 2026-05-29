@@ -346,6 +346,18 @@
       </div>
     </div>
 
+    <!-- Slide 8 -->
+    <div class="carousel-slide" data-project="qtsw">
+      <img src="img/projects/qtsw/Screenshot 2026-05-29 145313.png" alt="Holographic HUD Development Tools — Qt UI">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-ar">&#9670; Internal &middot; Qt / OpenGL &middot; 2017&ndash;2026</span>
+        <div class="carousel-title">Holographic HUD<br>Dev Tools</div>
+        <div class="carousel-sub">Senior Software Engineer &middot; Envisics &middot; Qt / C++ / OpenGL</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
   </div>
   <!-- CAROUSEL DOTS — add one per slide, incrementing data-idx -->
   <div class="carousel-nav">
@@ -357,6 +369,7 @@
     <button class="carousel-dot" data-idx="5"></button>
     <button class="carousel-dot" data-idx="6"></button>
     <button class="carousel-dot" data-idx="7"></button>
+    <button class="carousel-dot" data-idx="8"></button>
   </div>
 </div>
 
@@ -503,6 +516,16 @@
         <div class="proj-role">Custom Application Lead &middot; DAQRI</div>
         <p class="proj-desc">Developed AR experiences for DAQRI's industrial wearable platforms — the Smart Helmet and Smart Glasses. Worked across the full Unity pipeline building applications that ran directly on the devices, targeting industrial and enterprise use cases.</p>
         <div class="proj-tech-row"><span class="proj-tech">C#</span><span class="proj-tech">Unity</span><span class="proj-tech">AR</span><span class="proj-tech">Smart Helmet</span><span class="proj-tech">Smart Glasses</span></div>
+        <div class="proj-more">View details &#8599;</div>
+      </div>
+
+      <div class="proj-card cat-software" data-cat="software" data-project="qtsw">
+        <span class="proj-year">2017&ndash;2026</span>
+        <div class="proj-tag-row"><span class="proj-tag tag-software">Internal &middot; Qt / OpenGL</span></div>
+        <div class="proj-name">Holographic HUD Development Tools</div>
+        <div class="proj-role">Senior Software Engineer &middot; Envisics</div>
+        <p class="proj-desc">Built in-house Qt/C++ tooling to drive, configure, and test prototype holographic HUDs. Fully dockable and floating panel UI. Custom OpenGL renderer outputs holographic content to a second monitor, feeding directly into prototype hardware.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">Qt6</span><span class="proj-tech">OpenGL</span><span class="proj-tech">GLSL</span><span class="proj-tech">CMake</span></div>
         <div class="proj-more">View details &#8599;</div>
       </div>
 
@@ -706,6 +729,15 @@ const projects = {
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C#</span><span class="modal-tech">Unity</span><span class="modal-tech">Android</span><span class="modal-tech">DAQRI 4D AR</span><span class="modal-tech">DAQRI Smart Helmet</span><span class="modal-tech">DAQRI Smart Glasses</span><span class="modal-tech">Jenkins</span></div></div>
     <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://en.wikipedia.org/wiki/DAQRI" target="_blank" rel="noopener">DAQRI Wikipedia &#8599;</a></div></div>`
   },
+  'qtsw': {
+    tags: ['<span class="proj-tag tag-software">Internal &middot; Qt / OpenGL</span>'],
+    title: 'Holographic HUD Development Tools',
+    role: 'Senior Software Engineer &middot; Envisics &middot; 2017&ndash;2026',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">A suite of in-house C++/Qt desktop tools built at Envisics to drive, configure, and test prototype holographic HUD hardware. The application features a completely configurable panel system — every window can be freely docked or floated to match each engineer's workflow. A custom OpenGL renderer outputs holographic content to a secondary display, feeding it directly into the prototype HUD hardware for real-world validation.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/projects/qtsw/Screenshot 2026-05-29 145313.png" alt="HUD tools — full panel layout"><img src="img/projects/qtsw/Screenshot 2026-05-29 145531.png" alt="HUD tools — rearranged floating panels"><img src="img/projects/qtsw/Screenshot 2026-05-29 145647.png" alt="HUD tools — alternate dock configuration"></div></div>
+    <div class="modal-section"><div class="modal-section-title">Key Features</div><ul class="modal-bullets"><li><strong style="color:var(--text-md)">Configurable UI</strong> — Qt docking framework with fully detachable, floatable, and resizable panels; engineers can arrange the workspace freely without restarting the application</li><li><strong style="color:var(--text-md)">OpenGL second-monitor renderer</strong> — custom OpenGL window outputs holographic content to a secondary display, piping it directly into prototype HUD hardware for real-time validation</li><li><strong style="color:var(--text-md)">Sequence Controls</strong> — transport-style playback for stepping through holographic content sequences frame by frame or at speed</li><li><strong style="color:var(--text-md)">Grading Controls</strong> — per-channel RGBA sliders with colour offset support for fine-tuning holographic output luminance and colour balance</li><li><strong style="color:var(--text-md)">Content Browser</strong> — thumbnail grid for loading and previewing holographic image assets</li><li><strong style="color:var(--text-md)">Hardware / FPGA Interface</strong> — configuration panels for connecting to and communicating with prototype hardware boards over TCP/IP</li><li><strong style="color:var(--text-md)">Mouse Controls</strong> — configurable input modes for real-time interaction with displayed holographic content</li><li><strong style="color:var(--text-md)">Log Output</strong> — runtime diagnostics window with clear/print controls for debugging hardware communication and rendering</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">C++17/20</span><span class="modal-tech">Qt6</span><span class="modal-tech">OpenGL</span><span class="modal-tech">GLSL</span><span class="modal-tech">CMake</span><span class="modal-tech">TCP/IP</span><span class="modal-tech">FPGA interfacing</span><span class="modal-tech">HDMI</span></div></div>`
+  },
   'alexandria': {
     tags: ['<span class="proj-tag tag-shipped">Shipped &middot; PC</span>'],
     title: 'Lost Treasures of Alexandria',
@@ -853,7 +885,7 @@ slides.forEach(slide => {
   });
 });
 Promise.allSettled(
-  ['gow-gos','gijoe','envisics','crayola','alterra','daqri','alexandria','zya'].map(id =>
+  ['gow-gos','gijoe','envisics','crayola','alterra','daqri','qtsw','alexandria','zya'].map(id =>
     fetch(`img/projects/${id}/images.json`)
       .then(r => r.json())
       .then(files => {
