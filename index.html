@@ -43,9 +43,9 @@
   .hero-scroll { position:absolute; bottom:2.5rem; left:2.5rem; font-family:var(--mono); font-size:10px; color:var(--text-dim); letter-spacing:.15em; text-transform:uppercase; display:flex; align-items:center; gap:8px; }
   .hero-scroll::before { content:''; display:block; width:24px; height:1px; background:var(--text-dim); }
 
-  #carousel-section { padding:0; position:relative; overflow:hidden; background:#000; height:480px; }
-  .carousel-track { display:flex; height:100%; transition:transform .6s cubic-bezier(.4,0,.2,1); }
-  .carousel-slide { min-width:100%; height:100%; position:relative; cursor:pointer; flex-shrink:0; overflow:hidden; }
+  #carousel-section { padding:0; position:relative; overflow:hidden; background:#000; height:480px; isolation:isolate; }
+  .carousel-track { display:flex; height:100%; transition:transform .6s cubic-bezier(.4,0,.2,1); pointer-events:none; }
+  .carousel-slide { min-width:100%; height:100%; position:relative; z-index:0; cursor:pointer; flex-shrink:0; overflow:hidden; pointer-events:auto; }
   .carousel-slide .slide-bg { position:absolute; inset:-20px; background-size:cover; background-position:center; filter:blur(18px) brightness(0.4) saturate(0.6); transform:scale(1.05); z-index:0; }
   .carousel-slide img { position:relative; z-index:1; width:100%; height:100%; object-fit:contain; object-position:center; display:block; opacity:.9; transition:opacity .3s; }
   .carousel-slide:hover img { opacity:1; }
@@ -58,10 +58,10 @@
   .carousel-sub { font-family:var(--mono); font-size:12px; color:var(--text-lo); letter-spacing:.08em; margin-bottom:1rem; }
   .carousel-cta { font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:.12em; text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; }
   .carousel-cta::after { content:'→'; }
-  .carousel-nav { position:absolute; bottom:1.5rem; right:2.5rem; display:flex; gap:8px; }
+  .carousel-nav { position:absolute; bottom:1.5rem; right:2.5rem; display:flex; gap:8px; z-index:10; }
   .carousel-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.2); border:none; cursor:pointer; transition:all .2s; padding:0; }
   .carousel-dot.active { background:var(--amber); transform:scale(1.3); }
-  .carousel-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.5); border:1px solid var(--border); color:var(--text-md); font-family:var(--mono); font-size:16px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .2s; z-index:2; }
+  .carousel-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.5); border:1px solid var(--border); color:var(--text-md); font-family:var(--mono); font-size:16px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .2s; z-index:10; }
   .carousel-arrow:hover { background:rgba(201,125,42,.2); border-color:var(--amber); color:var(--amber); }
   .carousel-arrow.prev { left:1.5rem; }
   .carousel-arrow.next { right:1.5rem; }
