@@ -183,7 +183,19 @@
   .hidden { display:none !important; }
 
   .modal-images { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; margin-bottom:.75rem; scrollbar-width:thin; scrollbar-color:var(--border) transparent; }
-  .modal-images img { height:150px; width:auto; object-fit:cover; border:1px solid var(--border); flex-shrink:0; border-radius:1px; }
+  .modal-images img { height:150px; width:auto; object-fit:cover; border:1px solid var(--border); flex-shrink:0; border-radius:1px; cursor:zoom-in; transition:opacity .15s, border-color .15s; }
+  .modal-images img:hover { opacity:.8; border-color:var(--amber); }
+
+  /* ── Lightbox ── */
+  #lightbox { position:fixed; inset:0; background:rgba(0,0,0,.93); z-index:600; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .2s; }
+  #lightbox.open { opacity:1; pointer-events:auto; }
+  #lightbox-img { max-width:90vw; max-height:85vh; object-fit:contain; display:block; border:1px solid rgba(255,255,255,.08); border-radius:1px; user-select:none; }
+  .lb-close { position:absolute; top:1.25rem; right:1.25rem; background:rgba(0,0,0,.6); border:1px solid var(--border); color:var(--text-md); font-family:var(--mono); font-size:16px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .15s; border-radius:1px; }
+  .lb-close:hover { border-color:var(--amber); color:var(--amber); }
+  .lb-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.6); border:1px solid var(--border); color:var(--text-md); font-family:var(--mono); font-size:18px; width:48px; height:48px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .15s; border-radius:1px; }
+  .lb-arrow:hover { border-color:var(--amber); color:var(--amber); background:rgba(201,125,42,.15); }
+  .lb-prev { left:1.5rem; } .lb-next { right:1.5rem; }
+  .lb-counter { position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:11px; color:rgba(255,255,255,.35); letter-spacing:.12em; }
 
   @media (max-width:768px) {
     nav { padding:0 1.25rem; } .nav-links { gap:1.2rem; }
@@ -614,6 +626,14 @@
   </div>
 </footer>
 
+<div id="lightbox">
+  <button class="lb-close" id="lbClose">&#215;</button>
+  <button class="lb-arrow lb-prev" id="lbPrev">&#8592;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lb-arrow lb-next" id="lbNext">&#8594;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
 <div class="modal-backdrop" id="modalBackdrop">
   <div class="modal" id="modalBox">
     <div class="modal-header">
@@ -773,12 +793,18 @@ function openModal(id) {
 }
 function closeModal() {
   backdrop.classList.remove('open');
+  lbClose();
   document.body.style.overflow = '';
   setTimeout(() => { document.getElementById('modalBody').innerHTML = ''; }, 300);
 }
 modalClose.addEventListener('click', closeModal);
 backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { if (document.getElementById('lightbox').classList.contains('open')) lbClose(); else closeModal(); return; }
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowLeft')  lbNav(-1);
+  if (e.key === 'ArrowRight') lbNav(1);
+});
 document.querySelectorAll('.proj-card[data-project]').forEach(card => {
   card.addEventListener('click', e => { if (e.target.tagName === 'A') return; openModal(card.dataset.project); });
 });
@@ -908,6 +934,43 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
       card.classList.toggle('hidden', f !== 'all' && card.dataset.cat !== f);
     });
   });
+});
+
+// ── LIGHTBOX ──
+const lb = document.getElementById('lightbox');
+let lbImages = [], lbIdx = 0;
+
+function lbShow(idx) {
+  lbIdx = (idx + lbImages.length) % lbImages.length;
+  const img = document.getElementById('lightbox-img');
+  img.src = lbImages[lbIdx].src;
+  img.alt = lbImages[lbIdx].alt || '';
+  document.getElementById('lbCounter').textContent = lbImages.length > 1 ? `${lbIdx + 1} / ${lbImages.length}` : '';
+  // hide arrows if only one image
+  document.getElementById('lbPrev').style.display = lbImages.length > 1 ? '' : 'none';
+  document.getElementById('lbNext').style.display = lbImages.length > 1 ? '' : 'none';
+}
+function lbNav(dir) { lbShow(lbIdx + dir); }
+function lbOpen(imgs, startIdx) {
+  lbImages = imgs;
+  lbShow(startIdx);
+  lb.classList.add('open');
+}
+function lbClose() {
+  lb.classList.remove('open');
+}
+
+document.getElementById('lbClose').addEventListener('click', lbClose);
+document.getElementById('lbPrev').addEventListener('click', () => lbNav(-1));
+document.getElementById('lbNext').addEventListener('click', () => lbNav(1));
+lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+
+// Delegate clicks on gallery thumbnails inside the modal (content is injected dynamically)
+document.getElementById('modalBody').addEventListener('click', e => {
+  const thumb = e.target.closest('.modal-images img');
+  if (!thumb) return;
+  const all = Array.from(thumb.closest('.modal-images').querySelectorAll('img'));
+  lbOpen(all, all.indexOf(thumb));
 });
 
 const sections = document.querySelectorAll('section[id]');
