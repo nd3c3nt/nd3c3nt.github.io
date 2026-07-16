@@ -373,6 +373,18 @@
       </div>
     </div>
 
+    <!-- Slide 9 -->
+    <div class="carousel-slide" data-project="0ad">
+      <img src="img/projects/0ad/lead1.jpg" alt="0 A.D. official screenshot">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <span class="carousel-badge badge-shipped">&#10003; Personal &middot; Open Source</span>
+        <div class="carousel-title">0 A.D.</div>
+        <div class="carousel-sub">Programmer (Audio Tools) &middot; Wildfire Games &middot; Volunteer</div>
+        <span class="carousel-cta">View project details</span>
+      </div>
+    </div>
+
   </div>
   <!-- CAROUSEL DOTS — add one per slide, incrementing data-idx -->
   <div class="carousel-nav">
@@ -385,6 +397,7 @@
     <button class="carousel-dot" data-idx="6"></button>
     <button class="carousel-dot" data-idx="7"></button>
     <button class="carousel-dot" data-idx="8"></button>
+    <button class="carousel-dot" data-idx="9"></button>
   </div>
 </div>
 
@@ -551,6 +564,16 @@
         <div class="proj-role">Programmer &middot; Stratogon Entertainment</div>
         <p class="proj-desc">My first shipped commercial title — a match-3 puzzle adventure published by Big Fish Games. Led a 10-person team building an XNA engine. Implemented audio from scratch with OpenAL and FMOD. Wrote HLSL shaders. PC release only.</p>
         <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">C#</span><span class="proj-tech">XNA</span><span class="proj-tech">OpenAL</span><span class="proj-tech">FMOD</span><span class="proj-tech">HLSL</span></div>
+        <div class="proj-more">View details &#8599;</div>
+      </div>
+
+      <div class="proj-card cat-personal" data-cat="personal" data-project="0ad">
+        <span class="proj-year">Volunteer</span>
+        <div class="proj-tag-row"><span class="proj-tag tag-personal">Personal &middot; Open Source</span></div>
+        <div class="proj-name">0 A.D.</div>
+        <div class="proj-role">Programmer (Audio Tools) &middot; Wildfire Games</div>
+        <p class="proj-desc">Volunteer contributor to 0 A.D., a free, open-source historical RTS built on the Pyrogenesis engine. Built an audio asset/pipeline tool (&ldquo;Audio DTool&rdquo;) supporting the project's audio workflow. Credited as Gavin Fowler (nd3c3nt) &mdash; Programmer.</p>
+        <div class="proj-tech-row"><span class="proj-tech">C++</span><span class="proj-tech">Pyrogenesis Engine</span><span class="proj-tech">Open Source</span><span class="proj-tech">Audio Tools</span></div>
         <div class="proj-more">View details &#8599;</div>
       </div>
 
@@ -773,6 +796,16 @@ const projects = {
     <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">C#</span><span class="modal-tech">XNA</span><span class="modal-tech">OpenAL</span><span class="modal-tech">FMOD</span><span class="modal-tech">FFMPEG</span><span class="modal-tech">HLSL</span><span class="modal-tech">SVN</span><span class="modal-tech">Windows</span></div></div>
     <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://www.bigfishgames.com/the-lost-treasures-of-alexandria-f2423t1l1.html" target="_blank" rel="noopener">Big Fish Games &#8599;</a><a class="modal-link" href="https://gamefaqs.gamespot.com/pc/267902-the-lost-treasures-of-alexandria/data" target="_blank" rel="noopener">GameFAQs &#8599;</a></div></div>`
   },
+  '0ad': {
+    tags: ['<span class="proj-tag tag-personal">Personal &middot; Open Source</span>'],
+    title: '0 A.D.',
+    role: 'Programmer (Audio Tools) &middot; Wildfire Games &middot; Open Source / Volunteer',
+    body: `<div class="modal-section"><div class="modal-section-title">Overview</div><p class="modal-desc">0 A.D. is a free, open-source real-time strategy game of ancient warfare, developed by Wildfire Games — a global group of volunteer developers — on their in-house Pyrogenesis engine. I contributed as a volunteer programmer, building an audio asset/pipeline tool ("Audio DTool") to support the project's audio workflow. Credited as Gavin Fowler (nd3c3nt) &mdash; Programmer.</p></div>
+    <div class="modal-section"><div class="modal-section-title">Gallery</div><div class="modal-images"><img src="img/projects/0ad/lead1.jpg" alt="0 A.D. official screenshot — From Afar"><img src="img/projects/0ad/lead2.jpg" alt="0 A.D. official screenshot — Stonehenge"><img src="img/projects/0ad/lead3.jpg" alt="0 A.D. official screenshot — Sanctuary"></div><p class="modal-desc" style="font-size:12px;opacity:.6;margin-top:.5rem">Official 0 A.D. screenshots, shown for context — not depicting the Audio DTool itself.</p></div>
+    <div class="modal-section"><div class="modal-section-title">My Contribution</div><ul class="modal-bullets"><li>Volunteer contributor to 0 A.D., an open-source historical RTS built on the Pyrogenesis engine</li><li>Built an audio asset/pipeline tool ("Audio DTool") to support the project's audio workflow</li><li>Credited as a Programmer in the official 0 A.D. contributor credits</li></ul></div>
+    <div class="modal-section"><div class="modal-section-title">Tech Stack</div><div class="modal-tech-row"><span class="modal-tech">C++</span><span class="modal-tech">Pyrogenesis Engine</span><span class="modal-tech">Open Source</span><span class="modal-tech">Audio Tools</span></div></div>
+    <div class="modal-section"><div class="modal-section-title">Links</div><div class="modal-links"><a class="modal-link" href="https://play0ad.com/" target="_blank" rel="noopener">play0ad.com &#8599;</a><a class="modal-link" href="https://play0ad.com/about/contributors/" target="_blank" rel="noopener">Contributors &#8599;</a></div></div>`
+  },
   'dj': {
     tags: ['<span class="proj-tag tag-personal">Personal &middot; AV</span>'],
     title: 'nd3c3nt — DJ & Live AV',
@@ -790,8 +823,8 @@ const modalClose = document.getElementById('modalClose');
 function openModal(id) {
   const p = projects[id]; if (!p) return;
   document.getElementById('modalTags').innerHTML = p.tags.join('');
-  document.getElementById('modalTitle').textContent = p.title;
-  document.getElementById('modalRole').textContent = p.role;
+  document.getElementById('modalTitle').innerHTML = p.title;
+  document.getElementById('modalRole').innerHTML = p.role;
   document.getElementById('modalBody').innerHTML = p.body;
   backdrop.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -916,7 +949,7 @@ slides.forEach(slide => {
   });
 });
 Promise.allSettled(
-  ['gow-gos','gijoe','envisics','crayola','alterra','daqri','qtsw','alexandria','zya'].map(id =>
+  ['gow-gos','gijoe','envisics','crayola','alterra','daqri','qtsw','alexandria','zya','0ad'].map(id =>
     fetch(`img/projects/${id}/images.json`)
       .then(r => r.json())
       .then(files => {
